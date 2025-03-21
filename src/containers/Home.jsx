@@ -1,7 +1,8 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Hero } from "../assets";
-import { HeroTypeWritter } from "../components";
+import { HeroTypeWritter, HomeSocialLinks } from "../components";
+import { Socials } from "../utils/helper";
 
 const Home = () => {
   return (
@@ -33,7 +34,7 @@ const Home = () => {
             And I'm{" "}
             <HeroTypeWritter
               speed={100}
-              words={["a Developer..", "an YouTuber..", "a Freelancer.."]}
+              words={["a Developer...", "a YouTuber...", "a Freelancer..."]}
             />
           </h2>
 
@@ -43,6 +44,16 @@ const Home = () => {
             pariatur maiores, consequatur minus debitis nemo. Autem similique
             eum cum expedita dignissimos voluptatum consequuntur quaerat.
           </p>
+
+          {/* social media links */}
+          <div className="flex items-center justify-center gap-16 mt-16">
+            <AnimatePresence>
+              {Socials &&
+                Socials.map((item, index) => (
+                  <HomeSocialLinks key={index} data={item} index={index} />
+                ))}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* image section*/}

@@ -25,25 +25,25 @@ export const Socials = [
   {
     id: `facebook-${Date.now()}`,
     Icon: FaFacebookF,
-    uril: "",
+    uri: "",
     color: "#1877F2",
   },
   {
     id: `linkedin-${Date.now()}`,
     Icon: FaLinkedinIn,
-    uril: "",
+    uri: "",
     color: "#0072b1",
   },
   {
     id: `github-${Date.now()}`,
     Icon: FaGithub,
-    uril: "",
+    uri: "",
     color: "#fff",
   },
   {
     id: `youtube-${Date.now()}`,
     Icon: FaYoutube,
-    uril: "",
+    uri: "",
     color: "#ff0000",
   },
 ];
