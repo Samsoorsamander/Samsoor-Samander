@@ -13,8 +13,8 @@ const Home = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
         {/* content section*/}
         <div
-          className="w-full h-full flex flex-col items-center justify-center 
-        lg:item-center gap-4
+          className="w-full h-full flex flex-col items-center  
+        lg:items-start gap-4
         "
         >
           <h2 className="text-3xl lg:text-4xl text-texlight">
@@ -54,6 +54,21 @@ const Home = () => {
                 ))}
             </AnimatePresence>
           </div>
+          {/* hire me btn*/}
+          <a
+            href="cv"
+            style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
+            className="mt-12 border border-[rgba(255,255,255,0.3)] 
+          rounded-xl px-8 py-3 active:95 group hover:border-primary
+          "
+          >
+            <p
+              className="text-texlight group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary"
+            >
+              Hire me
+            </p>
+          </a>
         </div>
 
         {/* image section*/}
