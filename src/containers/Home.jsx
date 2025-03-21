@@ -20,7 +20,7 @@ const Home = () => {
             Hello, it's me
             <span
               className="block tracking-wider text-4xl lg:text-6xl mt-4
-            to-white
+            to-white text-white
             "
             >
               {" "}
@@ -32,9 +32,17 @@ const Home = () => {
           <h2 className="text-2xl lg:text-4xl text-texlight mt-4">
             And I'm{" "}
             <HeroTypeWritter
+              speed={100}
               words={["a Developer..", "an YouTuber..", "a Freelancer.."]}
             />
           </h2>
+
+          <p className="text-base text-texlight mt-6 text-center lg:text-left">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem, blanditiis fugiat, beatae quos dicta ducimus
+            pariatur maiores, consequatur minus debitis nemo. Autem similique
+            eum cum expedita dignissimos voluptatum consequuntur quaerat.
+          </p>
         </div>
 
         {/* image section*/}
