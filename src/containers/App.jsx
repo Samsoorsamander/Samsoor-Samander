@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "./";
+import { Header, Home } from "./";
 
 const App = () => {
   return (
@@ -10,6 +10,7 @@ const App = () => {
       <Header />
 
       {/* home contaier */}
+      <Home />
 
       {/* about contaier */}
 
