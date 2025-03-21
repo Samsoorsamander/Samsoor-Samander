@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Home, ServiceCount } from "./";
+import { About, Header, Home, ServiceCount } from "./";
 
 const App = () => {
   return (
@@ -13,7 +13,9 @@ const App = () => {
       <Home />
       {/* service container */}
       <ServiceCount />
+
       {/* about contaier */}
+      <About />
 
       {/* skills container */}
 
