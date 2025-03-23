@@ -54,22 +54,23 @@ const About = () => {
         "
         >
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            Every great app starts with a simple idea, but it takes vision,
+            persistence, and a love for problem-solving to bring it to life. I’m
+            a passionate mobile and full-stack web developer specializing in the
+            MERN stack. With a keen eye for detail and a commitment to clean,
+            efficient code, I strive to build seamless, high-performing
+            applications that enhance user experiences.
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            What I Do: Mobile App Development – Crafting intuitive,
+            high-performance applications. Full-Stack Web Development – Building
+            dynamic and scalable web solutions. Creative Problem-Solving –
+            Turning complex challenges into smooth, functional solutions.
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            Technology is constantly evolving, and so am I. Every project is a
+            journey of learning and innovation, and I love bringing ideas to
+            life through code.
           </p>
         </div>
       </div>

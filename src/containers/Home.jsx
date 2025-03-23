@@ -39,10 +39,12 @@ const Home = () => {
           </h2>
 
           <p className="text-base text-texlight mt-6 text-center lg:text-left">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem, blanditiis fugiat, beatae quos dicta ducimus
-            pariatur maiores, consequatur minus debitis nemo. Autem similique
-            eum cum expedita dignissimos voluptatum consequuntur quaerat.
+            Building apps, crafting experiences, and solving problems—one line
+            of code at a time. From mobile applications to full-stack web
+            solutions, I turn ideas into reality, blending creativity with logic
+            to make technology work seamlessly. Every project is a new
+            challenge, and every challenge is an opportunity to create something
+            meaningful.
           </p>
 
           {/* social media links */}

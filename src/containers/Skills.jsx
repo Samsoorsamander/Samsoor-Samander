@@ -38,22 +38,21 @@ const Skills = () => {
             My Skill & Work Experience
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            💻 Frontend Development React.js (Hooks, Context API, Redux) React
+            Native (Expo, Native Modules) UI/UX Design (Tailwind CSS, Styled
+            Components)
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            🚀 Backend Development Node.js (Express.js, REST APIs, WebSockets)
+            C# (.NET, ASP.NET Core)
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            quibusdam, deserunt, laborum necessitatibus, ipsum perspiciatis
-            adipisci eum sequi quo odio itaque iste error quaerat odit alias?
-            Esse tenetur vitae nihil.
+            🛢️ Database Management MongoDB (Mongoose, Aggregation) SQL (MySQL,
+            PostgreSQL) Oracle APEX (PL/SQL, Low-Code Development)
+          </p>
+          <p className="text-texlight text-base tracking-wide text-justify">
+            ⚙️ Tools & Other Skills Version Control (Git, GitHub) Authentication
+            (JWT, Clerk) Deployment (Vercel, Netlify, EAS, Docker)
           </p>
         </div>
 

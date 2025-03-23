@@ -4,6 +4,7 @@ import {
   Contact,
   Header,
   Home,
+  ParticlesContainer,
   Projects,
   ServiceCount,
   Skills,
@@ -11,11 +12,13 @@ import {
 import { AnimatePresence } from "framer-motion";
 import { Socials } from "../utils/helper";
 import { HomeSocialLinks } from "../components";
+import SkillsIcon from "../config/SkillsIcon";
 
 const App = () => {
   return (
     <div className="w-full xl:w-[1600px] py:32 px-4 lg:px-12 pr-4 lg:pr-32">
       {/* particals container*/}
+      <ParticlesContainer />
 
       {/* header */}
       <Header />
@@ -23,7 +26,7 @@ const App = () => {
       {/* home containerr */}
       <Home />
       {/* service container */}
-      <ServiceCount />
+      <SkillsIcon />
 
       {/* about contaier */}
       <About />
@@ -54,16 +57,15 @@ const App = () => {
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 mt-12">
           <p className="text-texlight text-center">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-            fugiat non dolorum dignissimos nulla doloribus ipsam quae similique
-            corrupti, consequuntur voluptates ratione nemo nesciunt aut aperiam
-            aliquid quia, exercitationem veniam.
+            As a developer, I’m committed to crafting meaningful experiences
+            through both mobile and web technologies. I strive to make every
+            project an opportunity for growth and innovation.
           </p>
           <p className="text-texlight text-center">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-            fugiat non dolorum dignissimos nulla doloribus ipsam quae similique
-            corrupti, consequuntur voluptates ratione nemo nesciunt aut aperiam
-            aliquid quia, exercitationem veniam.
+            Building projects isn’t just about writing code. It’s about
+            problem-solving and creating solutions that stand the test of time.
+            I believe in the power of collaboration and always seeking ways to
+            improve.
           </p>
           <div className="w-full flex flex-col items-center justify-center gap-3">
             <p className="text-texlight text-center">
