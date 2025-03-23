@@ -13,6 +13,12 @@ const Contact = () => {
     message: "",
   });
 
+  const [alert, setAlert] = useState({
+    isAlert: false,
+    message: "",
+    status: null,
+  });
+
   const handleTextChange = (e) => {
     const { name, value } = e.target;
 
@@ -21,8 +27,18 @@ const Contact = () => {
 
   const sendMessage = async () => {
     if (data.email === "" || data.email === null) {
-      alert("Please enter your email address");
-      return;
+      setAlert({
+        isAlert: true,
+        message: "Required fields can not be empty",
+        status: "warning",
+      });
+      setInterval(() => {
+        setAlert({
+          isAlert: false,
+          message: "",
+          status: null,
+        });
+      }, 4000);
     } else {
       try {
         await addDoc(collection(db, "messages"), {
@@ -30,16 +46,35 @@ const Contact = () => {
           lastName: data.lastName,
           email: data.email,
           message: data.message,
-        });
-        alert("Message Sent Successfully");
-        setData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
+        }).then(() => {
+          setAlert({
+            isAlert: true,
+            message: "Thaks for contacting me!",
+            status: "success",
+          });
+          setInterval(() => {
+            setAlert({
+              isAlert: false,
+              message: "",
+              status: null,
+            });
+          }, 4000);
+          setData({ firstName: "", lastName: "", email: "", message: "" });
         });
       } catch (error) {
-        console.log(error);
+        setAlert({
+          isAlert: true,
+          message: `Error: ${error.message}`,
+          status: "danger",
+        });
+        setInterval(() => {
+          setAlert({
+            isAlert: false,
+            message: "",
+            status: null,
+          });
+        }, 4000);
+        setData({ firstName: "", lastName: "", email: "", message: "" });
       }
     }
   };
@@ -50,7 +85,12 @@ const Contact = () => {
       className="flex items-center justify-center flex-col gap-12 my-12"
     >
       {/* Alert */}
-      <Alert status={"success"} />
+      <AnimatePresence>
+        {alert.isAlert && (
+          <Alert status={alert.status} message={alert.message} />
+        )}
+      </AnimatePresence>
+
       {/* title */}
       <div className="w-full flex items-center justify-center py-24">
         <motion.div
