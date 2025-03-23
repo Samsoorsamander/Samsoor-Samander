@@ -9,10 +9,10 @@ import {
   faGithub,
   faGitAlt,
 } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { SiTypescript, SiMongodb, SiOracle } from "react-icons/si";
 import { motion } from "framer-motion";
 
+// Skill List with Icons
 const skills = [
   {
     name: "JavaScript",
@@ -79,24 +79,22 @@ const skills = [
 const Skills = () => {
   return (
     <section id="skills" className="relative min-h-screen py-20">
+      {/* Skill Icons with Enhanced Snake Walk Animation */}
       <div className="relative flex justify-center flex-wrap gap-12">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
             className="flex flex-col items-center justify-center p-6 rounded-full transition duration-300"
             animate={{
-              y: [0, -15, 0], // Slight bounce
-              x: [0, 5, -5], // Tiny side movement
-              rotate: [-5, 5, -5], // Gentle tilt
+              y: [0, -20, 0, 20, 0], // Enhanced wave movement (larger range)
             }}
             transition={{
               repeat: Infinity,
-              repeatType: "loop",
-              duration: 4,
+              duration: 2, // Smooth speed
               ease: "easeInOut",
-              delay: index * 0.3, // Staggered effect
+              delay: index * 0.2, // Staggered wave effect
             }}
-            whileHover={{ scale: 1.2 }}
+            whileHover={{ scale: 1.2 }} // Slight hover effect
           >
             <div className={`text-5xl ${skill.color} drop-shadow-lg`}>
               {skill.icon}
