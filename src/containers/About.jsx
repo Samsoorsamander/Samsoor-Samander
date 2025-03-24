@@ -34,8 +34,8 @@ const About = () => {
           bg-gradient-to-br from bg-primary to-secondary relative"
           >
             <img
-              src={about}
-              className="w-full rounded-md h-auto object-contain"
+              src={require("../assets/img/anime3.jpg")}
+              className="w-full rounded-md h-full object-contain"
               alt=""
             />
             <div

@@ -59,7 +59,7 @@ const ProjectCard = ({ project }) => {
       backdrop-blur-md bg-[rgba(0,0,0,0.6) flex items-center justify-center flex-col gap-2"
         >
           <p>{project?.name}</p>
-          <a href={project.getURL}>
+          <a href={project.gitURL}>
             <FaGithub className="text-3xl text-white hover:text-primary" />
           </a>
         </motion.div>

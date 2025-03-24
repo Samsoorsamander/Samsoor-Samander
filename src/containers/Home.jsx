@@ -88,7 +88,8 @@ const Home = () => {
               ease: "linear",
             }}
             className="w-full h-auto object-contain"
-            src={Hero}
+            style={{ borderRadius: "50%", marginTop: 10 }}
+            src={require("../assets/img/animeImage.jpg")}
           />
         </div>
       </div>
