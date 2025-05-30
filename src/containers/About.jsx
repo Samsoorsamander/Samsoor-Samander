@@ -1,6 +1,6 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { about, Leaf1, Leaf2 } from "../assets";
+import { motion } from "framer-motion";
+import { Leaf1, Leaf2 } from "../assets";
 
 const About = () => {
   return (

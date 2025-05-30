@@ -1,6 +1,5 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Hero } from "../assets";
 import { HeroTypeWritter, HomeSocialLinks } from "../components";
 import { Socials } from "../utils/helper";
 

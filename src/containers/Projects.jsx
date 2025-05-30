@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { about, Leaf1, Leaf2 } from "../assets";
+import { Leaf1, Leaf2 } from "../assets";
 import { ProjectsData } from "../utils/helper";
 import { FaGithub } from "react-icons/fa6";
 
@@ -32,7 +32,9 @@ const Projects = () => {
         <AnimatePresence>
           {ProjectsData &&
             ProjectsData.map((project, index) => (
-              <ProjectCard key={project.id} project={project} />
+              <div className="rounded mx-w-400 mx-h-100">
+                <ProjectCard key={project.id} project={project} />
+              </div>
             ))}
         </AnimatePresence>
       </div>
@@ -46,7 +48,7 @@ const ProjectCard = ({ project }) => {
     <motion.div
       onMouseEnter={() => setIsHoverred(true)}
       onMouseLeave={() => setIsHoverred(false)}
-      className="overflow-hidden cursor-pointer relative rounded-md"
+      className="overflow-hidden cursor-pointer  relative rounded-md"
     >
       <motion.img
         whileHover={{ scale: 1.1 }}

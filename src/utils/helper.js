@@ -83,21 +83,21 @@ export const Menus = [
 
 export const ProjectsData = [
   {
-    id: `food-${Date.now()}`,
-    name: "Single Food Restaurant",
-    imgSrc: require("../assets/img/games space.png"),
+    id: `games-${Date.now()}`,
+    name: "Games space",
+    imgSrc: require("../assets/img/games space1.png"),
     gitURL: "https://games-space-g5lg.vercel.app/",
   },
   {
-    id: `codepen-${Date.now()}`,
-    name: "CodePen Clone",
-    imgSrc: CodePenClone,
-    gitURL: "https://github.com/samsoorsamander",
+    id: `issue-tracker-${Date.now()}`,
+    name: "Issue tracker",
+    imgSrc: require("../assets/img/issue-tracker (2).png"),
+    gitURL: "https://github.com/samsoorsamander/issue-tracker",
   },
   {
     id: `openai-${Date.now()}`,
-    name: "OpenAI",
-    imgSrc: OpenAI,
+    name: "S0",
+    imgSrc: require("../assets/img/S02.png"),
     gitURL: "https://github.com/samsoorsamander",
   },
   {

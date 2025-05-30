@@ -40,11 +40,11 @@ const Skills = () => {
           <p className="text-texlight text-base tracking-wide text-justify">
             💻 Frontend Development React.js (Hooks, Context API, Redux) React
             Native (Expo, Native Modules) UI/UX Design (Tailwind CSS, Styled
-            Components)
+            Components) and Next.js
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
             🚀 Backend Development Node.js (Express.js, REST APIs, WebSockets)
-            C# (.NET, ASP.NET Core)
+            C# (.NET, ASP.NET Core) and Next.js
           </p>
           <p className="text-texlight text-base tracking-wide text-justify">
             🛢️ Database Management MongoDB (Mongoose, Aggregation) SQL (MySQL,

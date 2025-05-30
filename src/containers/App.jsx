@@ -6,7 +6,6 @@ import {
   Home,
   ParticlesContainer,
   Projects,
-  ServiceCount,
   Skills,
 } from "./";
 import { AnimatePresence } from "framer-motion";

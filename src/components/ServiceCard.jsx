@@ -15,7 +15,7 @@ const ServiceCard = ({ count, text }) => {
           `}
       ></div>
       <p
-        className="text-texlight text-2xl text-texlight group-hover:text-transparent
+        className=" text-2xl text-texlight group-hover:text-transparent
          group-hover:bg-clip-text group-hover:bg-gradient-to-r
          group-hover:from-primary group-hover:to-secondary capitalize
          font-sans tracking-widest
