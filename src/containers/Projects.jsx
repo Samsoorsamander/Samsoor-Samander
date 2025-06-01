@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Leaf1, Leaf2 } from "../assets";
 import { ProjectsData } from "../utils/helper";
 import { FaGithub } from "react-icons/fa6";
-
+import { faDemocrat } from "@fortawesome/free-solid-svg-icons/faDemocrat";
 const Projects = () => {
   return (
     <section
@@ -64,6 +64,7 @@ const ProjectCard = ({ project }) => {
           <a href={project.gitURL}>
             <FaGithub className="text-3xl text-white hover:text-primary" />
           </a>
+          <a href={project.demo}>Demo</a>
         </motion.div>
       )}
     </motion.div>

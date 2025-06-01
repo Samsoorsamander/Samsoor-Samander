@@ -33,7 +33,7 @@ const Home = () => {
             And I'm{" "}
             <HeroTypeWritter
               speed={100}
-              words={["a Developer...", "a YouTuber...", "a Freelancer..."]}
+              words={["a Developer...", "a Freelancer..."]}
             />
           </h2>
 
