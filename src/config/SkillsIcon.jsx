@@ -9,7 +9,7 @@ import {
   faGithub,
   faGitAlt,
 } from "@fortawesome/free-brands-svg-icons";
-import { SiTypescript, SiMongodb, SiOracle } from "react-icons/si";
+import { SiTypescript, SiMongodb, SiOracle, SiNextdotjs } from "react-icons/si";
 import { motion } from "framer-motion";
 
 // Skill List with Icons
@@ -22,6 +22,11 @@ const skills = [
   {
     name: "TypeScript",
     icon: <SiTypescript />,
+    color: "text-blue-400 shadow-blue-400",
+  },
+  {
+    name: "NextDotjs",
+    icon: <SiNextdotjs />,
     color: "text-blue-400 shadow-blue-400",
   },
   {

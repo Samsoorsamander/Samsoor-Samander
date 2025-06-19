@@ -1,7 +1,7 @@
 import {
   FaDiagramProject,
   FaEnvelope,
-  FaFacebookF,
+  FaXTwitter,
   FaGithub,
   FaHouse,
   FaLinkedinIn,
@@ -10,9 +10,7 @@ import {
   FaInstagram,
 } from "react-icons/fa6";
 import {
-  ChatApp,
   FreshJuiceUI,
-  ImageSharing,
   PixabayClone,
   PortfolioFirebase,
   SocialMedia,
@@ -20,9 +18,9 @@ import {
 
 export const Socials = [
   {
-    id: `facebook-${Date.now()}`,
-    Icon: FaFacebookF,
-    uri: "https://facebook.com/samsoorsamander",
+    id: `xtwitter-${Date.now()}`,
+    Icon: FaXTwitter,
+    uri: "https://x.com/ssamDev",
     color: "#1877F2",
   },
   {
@@ -91,6 +89,34 @@ export const ProjectsData = [
     name: "Issue tracker",
     imgSrc: require("../assets/img/issue-tracker (2).png"),
     gitURL: "https://github.com/samsoorsamander/issue-tracker",
+    demo: "https://issue-tracker-phi-black.vercel.app/",
+  },
+  {
+    id: `DevSync-${Date.now()}`,
+    name: "DevSync for develpoers",
+    imgSrc: require("../assets/img/Dev-sync.png"),
+    gitURL: "https://github.com/samsoorsamander",
+    demo: "https://devsyncdotdev.vercel.app/",
+  },
+  {
+    id: `Gym-tracker-${Date.now()}`,
+    name: "Gym tribe tracker",
+    imgSrc: require("../assets/img/gym.png"),
+    gitURL: "https://github.com/samsoorsamander",
+    demo: "",
+  },
+  {
+    id: `AI-therapist-${Date.now()}`,
+    name: "AI Therapist",
+    imgSrc: require("../assets/img/AI-therapist.png"),
+    gitURL: "https://github.com/samsoorsamander",
+    demo: "",
+  },
+  {
+    id: `camera-app-${Date.now()}`,
+    name: "Camera app",
+    imgSrc: require("../assets/img/camera.jpg"),
+    gitURL: "https://github.com/samsoorsamander",
     demo: "https://games-space-g5lg.vercel.app/",
   },
   {
@@ -101,32 +127,16 @@ export const ProjectsData = [
     demo: "https://games-space-g5lg.vercel.app/",
   },
   {
-    id: `camera-app-${Date.now()}`,
-    name: "Camera app",
-    imgSrc: require("../assets/img/camera.jpg"),
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    id: `plantly-${Date.now()}`,
+    name: "Keep your plant healthy",
+    imgSrc: require("../assets/img/plantly.png"),
+    gitURL: "https://github.com/samsoorsamander/Plantly",
   },
   {
-    id: `DevSync-${Date.now()}`,
-    name: "DevSync for develpoers",
-    imgSrc: require("../assets/img/DevSyc.png"),
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "https://dev-sync-amber.vercel.app/",
-  },
-  {
-    id: `pixabayclone-${Date.now()}`,
-    name: "Pixabay Clone 2.0",
-    imgSrc: PixabayClone,
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
-  },
-  {
-    id: `freshjuiceui-${Date.now()}`,
-    name: "Fresh Juice UI Build",
-    imgSrc: FreshJuiceUI,
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    id: `vidly-${Date.now()}`,
+    name: "Vidly API",
+    imgSrc: require("../assets/img/vidly.jpeg"),
+    gitURL: "https://github.com/samsoorsamander/vidly",
   },
   {
     id: `socialmedia-${Date.now()}`,

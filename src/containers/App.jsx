@@ -12,6 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import { Socials } from "../utils/helper";
 import { HomeSocialLinks } from "../components";
 import SkillsIcon from "../config/SkillsIcon";
+import Certificates from "./Certificates";
 
 const App = () => {
   return (
@@ -35,6 +36,9 @@ const App = () => {
 
       {/* projects container */}
       <Projects />
+
+      {/* Certificates container */}
+      <Certificates />
 
       {/* contact container */}
       <Contact />
