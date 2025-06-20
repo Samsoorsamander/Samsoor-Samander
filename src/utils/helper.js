@@ -83,6 +83,7 @@ export const ProjectsData = [
     imgSrc: require("../assets/img/games space1.png"),
     gitURL: "https://games-space-g5lg.vercel.app/",
     demo: "https://games-space-g5lg.vercel.app/",
+    description: "A gaming platform with curated game collections and reviews.",
   },
   {
     id: `issue-tracker-${Date.now()}`,
@@ -90,6 +91,7 @@ export const ProjectsData = [
     imgSrc: require("../assets/img/issue-tracker (2).png"),
     gitURL: "https://github.com/samsoorsamander/issue-tracker",
     demo: "https://issue-tracker-phi-black.vercel.app/",
+    description: "Project management tool for tracking issues and bugs.",
   },
   {
     id: `DevSync-${Date.now()}`,
