@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   About,
   Contact,
@@ -13,22 +13,55 @@ import { Socials } from "../utils/helper";
 import { HomeSocialLinks } from "../components";
 import SkillsIcon from "../config/SkillsIcon";
 import Certificates from "./Certificates";
+import { FaArrowUp } from "react-icons/fa";
 
 const App = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Show button when page is scrolled down
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  // Scroll to top handler
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="w-full xl:w-[1600px] py:32 px-4 lg:px-12 pr-4 lg:pr-32">
-      {/* particals container*/}
+    <div className="w-full min-w-[320px] max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden">
+      {/* Smooth scroll behavior */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
+      {/* particles container */}
       <ParticlesContainer />
 
       {/* header */}
       <Header />
 
-      {/* home containerr */}
+      {/* home container */}
       <Home />
+
       {/* service container */}
       <SkillsIcon />
 
-      {/* about contaier */}
+      {/* about container */}
       <About />
 
       {/* skills container */}
@@ -44,12 +77,12 @@ const App = () => {
       <Contact />
 
       {/* footer container */}
-      <div className="w-full flex flex-col items-center justify-start mt-32 mb-12">
-        <p className="text-3xl tracking-wide text-texlight ">
-          {" "}
-          Samsoor Samander{" "}
+      <footer className="w-full flex flex-col items-center justify-start mt-12 md:mt-24 mb-6 md:mb-8 px-2 sm:px-4">
+        <p className="text-xl sm:text-2xl md:text-3xl tracking-wide text-texlight text-center">
+          Samsoor Samander
         </p>
-        <div className="flex items-center justify-center gap-16 mt-16">
+
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-16 mt-6 md:mt-12">
           <AnimatePresence>
             {Socials &&
               Socials.map((item, index) => (
@@ -58,29 +91,59 @@ const App = () => {
           </AnimatePresence>
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 mt-12">
-          <p className="text-texlight text-center">
-            As a developer, I’m committed to crafting meaningful experiences
-            through both mobile and web technologies. I strive to make every
-            project an opportunity for growth and innovation.
-          </p>
-          <p className="text-texlight text-center">
-            Building projects isn’t just about writing code. It’s about
-            problem-solving and creating solutions that stand the test of time.
-            I believe in the power of collaboration and always seeking ways to
-            improve.
-          </p>
-          <div className="w-full flex flex-col items-center justify-center gap-3">
-            <p className="text-texlight text-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12">
+          <div className="p-4">
+            <p className="text-texlight text-xs sm:text-sm md:text-base text-center md:text-left">
+              As a developer, I'm committed to crafting meaningful experiences
+              through both mobile and web technologies. I strive to make every
+              project an opportunity for growth and innovation.
+            </p>
+          </div>
+          <div className="p-4">
+            <p className="text-texlight text-xs sm:text-sm md:text-base text-center md:text-left">
+              Building projects isn't just about writing code. It's about
+              problem-solving and creating solutions that stand the test of
+              time. I believe in the power of collaboration and always seeking
+              ways to improve.
+            </p>
+          </div>
+          <div className="p-4 flex flex-col items-center justify-center gap-2 sm:gap-3">
+            <p className="text-texlight text-xs sm:text-sm md:text-base text-center">
               samsoorsamander@gmail.com
             </p>
-            <p className="text-texlight text-center">+93764273409</p>
-            <a href="cv">
-              <p className="text-primary text-center">Hire Me</p>
+            <p className="text-texlight text-xs sm:text-sm md:text-base text-center">
+              +93764273409
+            </p>
+            <a
+              href="cv"
+              className="hover:opacity-80 transition-opacity duration-300"
+              aria-label="Hire Me"
+            >
+              <p className="text-primary text-xs sm:text-sm md:text-base text-center font-medium">
+                Hire Me
+              </p>
             </a>
           </div>
         </div>
-      </div>
+
+        {/* Copyright */}
+        <div className="w-full border-t border-gray-700 mt-8 pt-6">
+          <p className="text-gray-400 text-xs text-center">
+            © {new Date().getFullYear()} Samsoor Samander. All rights reserved.
+          </p>
+        </div>
+      </footer>
+
+      {/* Back to Top Button */}
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-primary bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+        >
+          <FaArrowUp className="text-lg" />
+        </button>
+      )}
     </div>
   );
 };
