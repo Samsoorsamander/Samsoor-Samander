@@ -113,18 +113,25 @@ export const ProjectsData = [
     demo: "",
   },
   {
+    id: `Wanderlust-${Date.now()}`,
+    name: "Wanderlust ",
+    imgSrc: require("../assets/img/Wanderlust.png"),
+    gitURL: "https://github.com/samsoorsamander",
+    demo: "",
+  },
+  {
     id: `camera-app-${Date.now()}`,
     name: "Camera app",
     imgSrc: require("../assets/img/camera.jpg"),
     gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    demo: "",
   },
   {
     id: `openai-${Date.now()}`,
     name: "S0",
     imgSrc: require("../assets/img/S02.png"),
     gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    demo: "",
   },
   {
     id: `plantly-${Date.now()}`,
@@ -143,13 +150,13 @@ export const ProjectsData = [
     name: "Social Media App",
     imgSrc: SocialMedia,
     gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    demo: "",
   },
   {
     id: `portfoliofirebase-${Date.now()}`,
     name: "Portfolio UI Fireabse",
     imgSrc: PortfolioFirebase,
     gitURL: "https://github.com/samsoorsamander",
-    demo: "https://games-space-g5lg.vercel.app/",
+    demo: "",
   },
 ];
