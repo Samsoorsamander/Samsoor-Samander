@@ -79,33 +79,43 @@ export const Menus = [
 export const ProjectsData = [
   {
     id: `games-${Date.now()}`,
-    name: "Games space",
+    name: "Games Space",
     imgSrc: require("../assets/img/games space1.png"),
     gitURL: "https://games-space-g5lg.vercel.app/",
     demo: "https://games-space-g5lg.vercel.app/",
-    description: "A gaming platform with curated game collections and reviews.",
+    description:
+      "A comprehensive gaming platform featuring curated collections, user reviews, and game discovery. Built with modern web technologies for seamless browsing experience.",
+    type: "web",
   },
   {
     id: `issue-tracker-${Date.now()}`,
-    name: "Issue tracker",
+    name: "Issue Tracker",
     imgSrc: require("../assets/img/issue-tracker (2).png"),
     gitURL: "https://github.com/samsoorsamander/issue-tracker",
     demo: "https://issue-tracker-phi-black.vercel.app/",
-    description: "Project management tool for tracking issues and bugs.",
+    description:
+      "A productivity tool for development teams to track, manage, and resolve project issues efficiently. Features real-time updates and collaborative workflows.",
+    type: "web",
   },
   {
     id: `DevSync-${Date.now()}`,
-    name: "DevSync for develpoers",
+    name: "DevSync for Developers",
     imgSrc: require("../assets/img/Dev-sync.png"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "https://devsyncdotdev.vercel.app/",
+    description:
+      "A developer collaboration platform that syncs code, tasks, and communication in one place. Perfect for remote teams working on complex projects.",
+    type: "web",
   },
   {
     id: `Gym-tracker-${Date.now()}`,
-    name: "Gym tribe tracker",
+    name: "Gym Tribe Tracker",
     imgSrc: require("../assets/img/gym.png"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Fitness application that helps users track workouts, set goals, and connect with a community. Includes progress analytics and exercise libraries.",
+    type: "web",
   },
   {
     id: `AI-therapist-${Date.now()}`,
@@ -113,20 +123,29 @@ export const ProjectsData = [
     imgSrc: require("../assets/img/AI-therapist.png"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Mental health companion using natural language processing to provide therapeutic conversations and mindfulness exercises.",
+    type: "web",
   },
   {
     id: `Wanderlust-${Date.now()}`,
-    name: "Wanderlust ",
+    name: "Wanderlust",
     imgSrc: require("../assets/img/Wanderlust.png"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Travel planning application that helps users discover destinations, create itineraries, and share travel experiences with a community.",
+    type: "web",
   },
   {
     id: `camera-app-${Date.now()}`,
-    name: "Camera app",
+    name: "Camera App",
     imgSrc: require("../assets/img/camera.jpg"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Mobile camera application with advanced filters, editing tools, and social sharing capabilities. Built with React Native for cross-platform performance.",
+    type: "mobile",
   },
   {
     id: `openai-${Date.now()}`,
@@ -134,18 +153,29 @@ export const ProjectsData = [
     imgSrc: require("../assets/img/S02.png"),
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "AI-powered personal assistant that helps with productivity, scheduling, and information retrieval using natural language commands.",
+    type: "mobile",
   },
   {
     id: `plantly-${Date.now()}`,
-    name: "Keep your plant healthy",
+    name: "Keep Your Plant Healthy",
     imgSrc: require("../assets/img/plantly.png"),
     gitURL: "https://github.com/samsoorsamander/Plantly",
+    demo: "",
+    description:
+      "Plant care companion that provides watering reminders, growth tracking, and plant identification through image recognition.",
+    type: "mobile",
   },
   {
     id: `vidly-${Date.now()}`,
     name: "Vidly API",
     imgSrc: require("../assets/img/vidly.jpeg"),
     gitURL: "https://github.com/samsoorsamander/vidly",
+    demo: "",
+    description:
+      "RESTful API service for video rental applications. Features user authentication, movie catalog management, and rental processing.",
+    type: "web",
   },
   {
     id: `socialmedia-${Date.now()}`,
@@ -153,12 +183,18 @@ export const ProjectsData = [
     imgSrc: SocialMedia,
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Full-stack social networking platform with real-time posts, comments, and user connections. Built with modern authentication and data security.",
+    type: "web",
   },
   {
     id: `portfoliofirebase-${Date.now()}`,
-    name: "Portfolio UI Fireabse",
+    name: "Portfolio UI Firebase",
     imgSrc: PortfolioFirebase,
     gitURL: "https://github.com/samsoorsamander",
     demo: "",
+    description:
+      "Interactive portfolio website with Firebase backend for dynamic content management. Showcases projects with smooth animations and responsive design.",
+    type: "web",
   },
 ];
