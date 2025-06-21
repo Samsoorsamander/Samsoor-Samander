@@ -78,6 +78,16 @@ export const Menus = [
 
 export const ProjectsData = [
   {
+    id: `Gym-tracker-${Date.now()}`,
+    name: "Gym Tribe Tracker",
+    imgSrc: require("../assets/img/gym.png"),
+    gitURL: "https://github.com/samsoorsamander",
+    demo: "",
+    description:
+      "Fitness application that helps users track workouts, set goals, and connect with a community. Includes progress analytics and exercise libraries.",
+    type: "web",
+  },
+  {
     id: `games-${Date.now()}`,
     name: "Games Space",
     imgSrc: require("../assets/img/games space1.png"),
@@ -87,16 +97,7 @@ export const ProjectsData = [
       "A comprehensive gaming platform featuring curated collections, user reviews, and game discovery. Built with modern web technologies for seamless browsing experience.",
     type: "web",
   },
-  {
-    id: `issue-tracker-${Date.now()}`,
-    name: "Issue Tracker",
-    imgSrc: require("../assets/img/issue-tracker (2).png"),
-    gitURL: "https://github.com/samsoorsamander/issue-tracker",
-    demo: "https://issue-tracker-phi-black.vercel.app/",
-    description:
-      "A productivity tool for development teams to track, manage, and resolve project issues efficiently. Features real-time updates and collaborative workflows.",
-    type: "web",
-  },
+
   {
     id: `DevSync-${Date.now()}`,
     name: "DevSync for Developers",
@@ -107,16 +108,7 @@ export const ProjectsData = [
       "A developer collaboration platform that syncs code, tasks, and communication in one place. Perfect for remote teams working on complex projects.",
     type: "web",
   },
-  {
-    id: `Gym-tracker-${Date.now()}`,
-    name: "Gym Tribe Tracker",
-    imgSrc: require("../assets/img/gym.png"),
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "",
-    description:
-      "Fitness application that helps users track workouts, set goals, and connect with a community. Includes progress analytics and exercise libraries.",
-    type: "web",
-  },
+
   {
     id: `AI-therapist-${Date.now()}`,
     name: "AI Therapist",
@@ -135,6 +127,16 @@ export const ProjectsData = [
     demo: "",
     description:
       "Travel planning application that helps users discover destinations, create itineraries, and share travel experiences with a community.",
+    type: "web",
+  },
+  {
+    id: `issue-tracker-${Date.now()}`,
+    name: "Issue Tracker",
+    imgSrc: require("../assets/img/issue-tracker (2).png"),
+    gitURL: "https://github.com/samsoorsamander/issue-tracker",
+    demo: "https://issue-tracker-phi-black.vercel.app/",
+    description:
+      "A productivity tool for development teams to track, manage, and resolve project issues efficiently. Features real-time updates and collaborative workflows.",
     type: "web",
   },
   {
