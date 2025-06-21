@@ -124,7 +124,7 @@ export const ProjectsData = [
     name: "Wanderlust",
     imgSrc: require("../assets/img/Wanderlust.png"),
     gitURL: "https://github.com/samsoorsamander",
-    demo: "",
+    demo: "https://wanderlust-samsoors-projects.vercel.app/",
     description:
       "Travel planning application that helps users discover destinations, create itineraries, and share travel experiences with a community.",
     type: "web",
