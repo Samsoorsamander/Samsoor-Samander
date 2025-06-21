@@ -78,11 +78,11 @@ export const Menus = [
 
 export const ProjectsData = [
   {
-    id: `Gym-tracker-${Date.now()}`,
+    id: `Gym tribe tracker-${Date.now()}`,
     name: "Gym Tribe Tracker",
     imgSrc: require("../assets/img/gym.png"),
     gitURL: "https://github.com/samsoorsamander",
-    demo: "",
+    demo: "https://gym-tribe-tracker.vercel.app/",
     description:
       "Fitness application that helps users track workouts, set goals, and connect with a community. Includes progress analytics and exercise libraries.",
     type: "web",
