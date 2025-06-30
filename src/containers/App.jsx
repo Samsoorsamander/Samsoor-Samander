@@ -91,22 +91,7 @@ const App = () => {
           </AnimatePresence>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12">
-          <div className="p-4">
-            <p className="text-texlight text-xs sm:text-sm md:text-base text-center md:text-left">
-              As a developer, I'm committed to crafting meaningful experiences
-              through both mobile and web technologies. I strive to make every
-              project an opportunity for growth and innovation.
-            </p>
-          </div>
-          <div className="p-4">
-            <p className="text-texlight text-xs sm:text-sm md:text-base text-center md:text-left">
-              Building projects isn't just about writing code. It's about
-              problem-solving and creating solutions that stand the test of
-              time. I believe in the power of collaboration and always seeking
-              ways to improve.
-            </p>
-          </div>
+        <div className="w-full flex flex-col items-center justify-start mt-12 md:mt-24 mb-6 md:mb-8 px-2 sm:px-4">
           <div className="p-4 flex flex-col items-center justify-center gap-2 sm:gap-3">
             <p className="text-texlight text-xs sm:text-sm md:text-base text-center">
               samsoorsamander@gmail.com
