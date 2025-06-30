@@ -33,12 +33,12 @@ const App = () => {
   }, []);
 
   // Scroll to top handler
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <div className="w-full min-w-[320px] max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden">
@@ -118,17 +118,6 @@ const App = () => {
           </p>
         </div>
       </footer>
-
-      {/* Back to Top Button */}
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          aria-label="Back to top"
-          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-primary bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
-        >
-          <FaArrowUp className="text-lg" />
-        </button>
-      )}
     </div>
   );
 };

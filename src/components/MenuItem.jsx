@@ -5,24 +5,33 @@ const MenuItem = ({ menu, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative mx-1 sm:mx-2">
-      {" "}
-      {/* Added horizontal margins */}
+    <div className="relative mx-1 sm:mx-2 min-w-[44px]">
       <a
         href={menu.uri}
-        className="w-12 h-12 rounded-full flex items-center
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center
          justify-center group cursor-pointer 
          hover:bg-gradient-to-br 
          hover:from-primary hover:to-secondary relative
-         "
+         transition-all duration-200
+         active:scale-95"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={(e) => {
+          // Smooth scroll for anchor links
+          if (menu.uri.startsWith("#")) {
+            e.preventDefault();
+            document.querySelector(menu.uri)?.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        }}
       >
         <menu.Icon
-          className={`text-texlight group-hover:text-bgPrimary text-xl`}
+          className={`text-texlight group-hover:text-bgPrimary text-lg sm:text-xl`}
         />
       </a>
-      {/* Desktop-only tool tips */}
+
+      {/* Desktop tooltips */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -37,13 +46,14 @@ const MenuItem = ({ menu, index }) => {
               minWidth: "120px",
             }}
           >
-            <p className="text-bgPrimary">{menu?.name}</p>
+            <p className="text-bgPrimary text-sm font-medium">{menu?.name}</p>
           </motion.div>
         )}
       </AnimatePresence>
+
       {/* Mobile label - always visible */}
       <div className="lg:hidden block text-center mt-1">
-        <p className="text-texlight text-xs">{menu.name}</p>
+        <p className="text-texlight text-xs whitespace-nowrap">{menu.name}</p>
       </div>
     </div>
   );
