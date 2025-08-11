@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { HeroTypeWritter, HomeSocialLinks } from "../components";
 import { Socials } from "../utils/helper";
 import CV from "./../assets/Samsoor-resume.pdf";
@@ -75,24 +75,6 @@ const Home = () => {
         </div>
 
         {/* image section*/}
-        {/* <div
-          className="w-full h-full flex  items-start justify-center
-        lg:item-center
-        "
-        >
-          <motion.img
-            initial={{ y: 0 }}
-            animate={{ y: [-10, 10, -10] }}
-            transition={{
-              repeat: Infinity,
-              duration: 2,
-              ease: "linear",
-            }}
-            className="w-full h-auto object-contain"
-            style={{ borderRadius: "50%", marginTop: 10 }}
-            src={require("../assets/img/animeImage.jpg")}
-          />
-        </div> */}
       </div>
     </section>
   );

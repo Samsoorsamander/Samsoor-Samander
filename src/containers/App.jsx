@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  About,
   Contact,
   Header,
   Home,
@@ -13,7 +12,6 @@ import { Socials } from "../utils/helper";
 import { HomeSocialLinks } from "../components";
 import SkillsIcon from "../config/SkillsIcon";
 import Certificates from "./Certificates";
-import { FaArrowUp } from "react-icons/fa";
 
 const App = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,10 +50,6 @@ const App = () => {
 
       {/* service container */}
       <SkillsIcon />
-
-      {/* about container */}
-      {/* <About /> */}
-
       {/* skills container */}
       <Skills />
 

@@ -1,12 +1,11 @@
 import React from "react";
-import { about, Leaf1, Leaf2 } from "../assets";
+import { Leaf1, Leaf2 } from "../assets";
 import { motion } from "framer-motion";
-import { SkillCard } from "../components";
 
 const Skills = () => {
   return (
     <section
-      id="home"
+      id="skills"
       className="flex items-center justify-center flex-col gap-12 my-12"
     >
       {/* title */}
