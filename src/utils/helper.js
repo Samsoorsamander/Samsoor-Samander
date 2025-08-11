@@ -26,7 +26,7 @@ export const Socials = [
   {
     id: `linkedin-${Date.now()}`,
     Icon: FaLinkedinIn,
-    uri: "https://linkedin.com/in/SamsoorHananzoi",
+    uri: "https://www.linkedin.com/in/samsoor-hananzoi-264510257/",
     color: "#0072b1",
   },
   {
@@ -143,7 +143,7 @@ export const ProjectsData = [
     id: `camera-app-${Date.now()}`,
     name: "Camera App",
     imgSrc: require("../assets/img/camera.jpg"),
-    gitURL: "https://github.com/samsoorsamander",
+    gitURL: "https://github.com/Samsoorsamander/camera",
     demo: "",
     description:
       "Mobile camera application with advanced filters, editing tools, and social sharing capabilities. Built with React Native for cross-platform performance.",
