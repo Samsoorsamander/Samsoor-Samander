@@ -169,34 +169,4 @@ export const ProjectsData = [
       "Plant care companion that provides watering reminders, growth tracking, and plant identification through image recognition.",
     type: "mobile",
   },
-  {
-    id: `vidly-${Date.now()}`,
-    name: "Vidly API",
-    imgSrc: require("../assets/img/vidly.jpeg"),
-    gitURL: "https://github.com/samsoorsamander/vidly",
-    demo: "",
-    description:
-      "RESTful API service for video rental applications. Features user authentication, movie catalog management, and rental processing.",
-    type: "web",
-  },
-  {
-    id: `socialmedia-${Date.now()}`,
-    name: "Social Media App",
-    imgSrc: SocialMedia,
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "",
-    description:
-      "Full-stack social networking platform with real-time posts, comments, and user connections. Built with modern authentication and data security.",
-    type: "web",
-  },
-  {
-    id: `portfoliofirebase-${Date.now()}`,
-    name: "Portfolio UI Firebase",
-    imgSrc: PortfolioFirebase,
-    gitURL: "https://github.com/samsoorsamander",
-    demo: "",
-    description:
-      "Interactive portfolio website with Firebase backend for dynamic content management. Showcases projects with smooth animations and responsive design.",
-    type: "web",
-  },
 ];
