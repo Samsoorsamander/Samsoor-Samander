@@ -32,14 +32,6 @@ const App = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Scroll to top handler
-  // const scrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
-
   return (
     <div className="w-full min-w-[320px] max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden">
       {/* Smooth scroll behavior */}
@@ -62,7 +54,7 @@ const App = () => {
       <SkillsIcon />
 
       {/* about container */}
-      <About />
+      {/* <About /> */}
 
       {/* skills container */}
       <Skills />

@@ -27,7 +27,7 @@ const Skills = () => {
       </div>
 
       {/* main content */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1  gap-4 w-full">
         {/* content section */}
         <div
           className="w-full px-8 flex flex-col gap-4 items-start
@@ -57,7 +57,7 @@ const Skills = () => {
         </div>
 
         {/* image section */}
-        <div className="w-full flex flex-col gap-4 items-center justify-center px-8">
+        {/* <div className="w-full flex flex-col gap-4 items-center justify-center px-8">
           <SkillCard
             skill={"HTML 5"}
             percentage={"95%"}
@@ -73,7 +73,7 @@ const Skills = () => {
           />
           <SkillCard skill={"Node Js"} percentage={"80%"} color={"#14DB00"} />
           <SkillCard skill={"Mongo DB "} percentage={"75%"} color={"#FFE400"} />
-        </div>
+        </div> */}
       </div>
     </section>
   );
