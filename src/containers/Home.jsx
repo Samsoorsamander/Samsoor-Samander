@@ -2,6 +2,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HeroTypeWritter, HomeSocialLinks } from "../components";
 import { Socials } from "../utils/helper";
+import CV from "./../assets/Samsoor-resume.pdf";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       id="home"
       className="flex items-center justify-center flex-col gap-12 relative"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1  gap-4 w-full">
         {/* content section*/}
         <div
           className="w-full h-full flex flex-col items-center  
@@ -57,7 +58,8 @@ const Home = () => {
           </div>
           {/* hire me btn*/}
           <a
-            href="cv"
+            href={CV}
+            download="Samsoor-resume.pdf"
             style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
             className="mt-12 border border-[rgba(255,255,255,0.3)] 
           rounded-xl px-8 py-3 active:95 group hover:border-primary
@@ -67,13 +69,13 @@ const Home = () => {
               className="text-texlight group-hover:text-transparent group-hover:bg-clip-text 
                 group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary"
             >
-              Hire me
+              Download CV
             </p>
           </a>
         </div>
 
         {/* image section*/}
-        <div
+        {/* <div
           className="w-full h-full flex  items-start justify-center
         lg:item-center
         "
@@ -90,7 +92,7 @@ const Home = () => {
             style={{ borderRadius: "50%", marginTop: 10 }}
             src={require("../assets/img/animeImage.jpg")}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
