@@ -5,6 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase.config";
 import Alert from "./Alert";
 
+import emailjs from "emailjs-com";
 const Contact = () => {
   const [data, setData] = useState({
     firstName: "",
@@ -26,56 +27,58 @@ const Contact = () => {
   };
 
   const sendMessage = async () => {
-    if (data.email === "" || data.email === null) {
+    if (!data.email) {
       setAlert({
         isAlert: true,
-        message: "Required fields can not be empty",
+        message: "Required fields cannot be empty",
         status: "warning",
       });
-      setInterval(() => {
-        setAlert({
-          isAlert: false,
-          message: "",
-          status: null,
-        });
-      }, 4000);
-    } else {
-      try {
-        await addDoc(collection(db, "messages"), {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
+      setTimeout(
+        () => setAlert({ isAlert: false, message: "", status: null }),
+        4000
+      );
+      return;
+    }
+
+    try {
+      // Store in Firestore
+      await addDoc(collection(db, "messages"), { ...data });
+
+      // Send email via EmailJS
+      await emailjs.send(
+        "samsoorID",
+        "template_rwsdu7z",
+        {
+          from_first: data.firstName,
+          from_last: data.lastName,
+          from_email: data.email,
           message: data.message,
-        }).then(() => {
-          setAlert({
-            isAlert: true,
-            message: "Thaks for contacting me!",
-            status: "success",
-          });
-          setInterval(() => {
-            setAlert({
-              isAlert: false,
-              message: "",
-              status: null,
-            });
-          }, 4000);
-          setData({ firstName: "", lastName: "", email: "", message: "" });
-        });
-      } catch (error) {
-        setAlert({
-          isAlert: true,
-          message: `Error: ${error.message}`,
-          status: "danger",
-        });
-        setInterval(() => {
-          setAlert({
-            isAlert: false,
-            message: "",
-            status: null,
-          });
-        }, 4000);
-        setData({ firstName: "", lastName: "", email: "", message: "" });
-      }
+        },
+        "LbagokLMED6e5BBFc"
+      );
+
+      setAlert({
+        isAlert: true,
+        message:
+          "Thanks for contacting me! Your message has been sent to my inbox.",
+        status: "success",
+      });
+
+      setTimeout(
+        () => setAlert({ isAlert: false, message: "", status: null }),
+        4000
+      );
+      setData({ firstName: "", lastName: "", email: "", message: "" });
+    } catch (error) {
+      setAlert({
+        isAlert: true,
+        message: `Error: ${error.message}`,
+        status: "danger",
+      });
+      setTimeout(
+        () => setAlert({ isAlert: false, message: "", status: null }),
+        4000
+      );
     }
   };
 

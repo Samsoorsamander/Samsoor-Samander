@@ -83,7 +83,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative min-h-screen py-20">
+    <section id="skillsIcon" className="relative ">
       {/* Skill Icons with Enhanced Snake Walk Animation */}
       <div className="relative flex justify-center flex-wrap gap-12">
         {skills.map((skill, index) => (
