@@ -88,6 +88,16 @@ export const ProjectsData = [
     type: "web",
   },
   {
+    id: `Trending Daily Hub-${Date.now()}`,
+    name: "Trending Daily Hub",
+    imgSrc: require("../assets/img/tt.png"),
+    gitURL: "https://github.com/Samsoorsamander/Trending-Daily-Hub",
+    demo: "https://trending-daily-hub.vercel.app/",
+    description:
+      "Trending Daily Hub - A multi-source entertainment aggregator delivering daily trending content across films, tech news, and music through seamless API integrations.",
+    type: "web",
+  },
+  {
     id: `games-${Date.now()}`,
     name: "Games Space",
     imgSrc: require("../assets/img/games space1.png"),
