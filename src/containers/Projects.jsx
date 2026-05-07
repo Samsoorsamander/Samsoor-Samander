@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Leaf1, Leaf2 } from "../assets";
 import { ProjectsData } from "../utils/helper";
+import { SectionTitle } from "../components";
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -13,29 +13,13 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="flex items-center justify-center flex-col gap-12 my-12"
+      className="flex items-center justify-center flex-col gap-12 my-16"
     >
-      {/* title */}
-      <div className="w-full flex items-center justify-center py-24">
-        <motion.div
-          initial={{ opacity: 0, width: 0 }}
-          animate={{ opacity: 1, width: 200 }}
-          exit={{ opacity: 0, width: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-around w-52"
-        >
-          <img src={Leaf1} className="w-6 h-auto object-contain" alt="" />
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Projects
-          </p>
-          <img src={Leaf2} className="w-6 h-auto object-contain" alt="" />
-        </motion.div>
-      </div>
+      <SectionTitle title="Featured Projects" subtitle="Portfolio" />
 
-      {/* main content - Removed AnimatePresence here */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
         {ProjectsData &&
-          ProjectsData.map((project) => (
+          ProjectsData.map((project, index) => (
             <ProjectCard key={project.id} project={project} />
           ))}
       </div>
@@ -44,29 +28,26 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-lg shadow-lg h-full"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -8 }}
+      className="relative overflow-hidden rounded-2xl h-full glass-card border border-white/10"
     >
-      {/* Project Image */}
       <div className="h-48 overflow-hidden">
         <motion.img
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.4 }}
           className="w-full h-full object-cover"
           src={project.imgSrc}
           alt={project.name}
         />
       </div>
 
-      {/* Project Info (always visible) */}
-      <div className="p-4 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <div className="p-5 text-white">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
         <p className="text-gray-300 text-sm mb-4 line-clamp-2">
           {project.description || "A fantastic project with great features."}
@@ -116,58 +97,8 @@ const ProjectCard = ({ project }) => {
         </div>
       </div>
 
-      {/* Hover Overlay with Blur Effect */}
-      {isHovered && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="absolute inset-0 backdrop-blur-md bg-black/60 flex flex-col justify-center items-center p-6 text-center"
-        >
-          <h3 className="text-xl font-bold mb-4 text-white">{project.name}</h3>
-          <p className="mb-6 text-sm text-gray-200">
-            {project.description ||
-              "Click the links below to explore this project."}
-          </p>
-
-          {/* Project Type in Overlay */}
-          <div className="mb-6 flex items-center text-white">
-            {project.type === "mobile" ? (
-              <>
-                <FaMobileAlt className="mr-2" />
-                <span>Mobile Application</span>
-              </>
-            ) : (
-              <>
-                <FaDesktop className="mr-2" />
-                <span>Web Application</span>
-              </>
-            )}
-          </div>
-
-          <div className="flex space-x-4">
-            {project.gitURL && (
-              <a
-                href={project.gitURL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-gray-900 px-4 py-2 rounded-full flex items-center hover:bg-gray-200 transition-colors"
-              >
-                <FaGithub className="mr-2" /> Code
-              </a>
-            )}
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-gray-900 px-4 py-2 rounded-full flex items-center hover:bg-gray-200 transition-colors"
-              >
-                <FaExternalLinkAlt className="mr-2" /> Demo
-              </a>
-            )}
-          </div>
-        </motion.div>
-      )}
+      {/* Static gradient glow keeps cards modern without extra complexity. */}
+      <div className="pointer-events-none absolute -bottom-14 -right-14 w-40 h-40 rounded-full bg-primary/20 blur-3xl" />
     </motion.div>
   );
 };

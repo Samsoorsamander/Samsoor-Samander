@@ -10,9 +10,9 @@ const Header = () => {
       px-4 sm:px-0"
     >
       <div
-        className="px-4 py-3 lg:py-12 rounded-full border border-[rgba(255,255,255,0.3)] 
-        flex flex-row lg:flex-col items-center justify-center gap-4 sm:gap-8 lg:gap-12
-        duration-200 backdrop-blur-md max-w-full overflow-x-auto lg:overflow-visible"
+        className="px-4 py-3 lg:py-10 rounded-[28px] border border-white/20 bg-black/35
+        flex flex-row lg:flex-col items-center justify-center gap-4 sm:gap-8 lg:gap-10
+        duration-200 backdrop-blur-xl max-w-full overflow-x-auto lg:overflow-visible shadow-2xl"
       >
         {Menus &&
           Menus.map((item, index) => (

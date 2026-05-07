@@ -9,12 +9,15 @@ const HomeSocialLinks = ({ data, index }) => {
       initial={{ opacity: 0, y: -25 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
+      whileHover={{ y: -6, scale: 1.05 }}
       transition={{
         delay: index * 0.1,
       }}
-      className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary relative p-[2px] cursor-pointer"
+      className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary relative p-[2px] cursor-pointer shadow-lg"
       onMouseEnter={() => setIsHoverred(true)}
       onMouseLeave={() => setIsHoverred(false)}
+      target="_blank"
+      rel="noreferrer"
     >
       <AnimatePresence>
         {isHoverred && (

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Leaf1, Leaf2 } from "../assets";
 import { AnimatePresence, motion } from "framer-motion";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase.config";
 import Alert from "./Alert";
+import { SectionTitle } from "../components";
 
 import emailjs from "emailjs-com";
 const Contact = () => {
@@ -85,7 +85,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex items-center justify-center flex-col gap-12 my-12"
+      className="flex items-center justify-center flex-col gap-12 my-16"
     >
       {/* Alert */}
       <AnimatePresence>
@@ -94,32 +94,17 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
-      {/* title */}
-      <div className="w-full flex items-center justify-center py-24">
-        <motion.div
-          initial={{ opacity: 0, width: 0 }}
-          animate={{ opacity: 1, width: 200 }}
-          exit={{ opacity: 0, width: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-around w-52"
-        >
-          <img src={Leaf1} className="w-6 h-auto object-contain" alt="" />
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Contact Me
-          </p>
-          <img src={Leaf2} className="w-6 h-auto object-contain" alt="" />
-        </motion.div>
-      </div>
+      <SectionTitle title="Let's Build Something Great" subtitle="Contact" />
 
       {/* main content */}
       <div
-        className=" w-full flex flex-col items-center justify-start
-      gap-4"
+        className="w-full flex flex-col items-center justify-start gap-4"
       >
-        <div
-          className="w-full lg:w-[600px] p-2 flex flex-col
-        items-center justify-start gap-4
-        "
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="w-full lg:w-[680px] p-4 sm:p-6 flex flex-col items-center justify-start gap-4 glass-card rounded-3xl border border-white/10"
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
             <input
@@ -128,11 +113,7 @@ const Contact = () => {
               name="firstName"
               value={data.firstName}
               onChange={handleTextChange}
-              style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
-              className="w-full px-4 py-3 rounded-md border
-            border-[rgba(225,255,255,0.3)] bg-transparent 
-            focus:border-primary outline-none text-white
-            "
+              className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
             />
 
             <input
@@ -141,11 +122,7 @@ const Contact = () => {
               name="lastName"
               value={data.lastName}
               onChange={handleTextChange}
-              style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
-              className="w-full px-4 py-3 rounded-md border
-            border-[rgba(225,255,255,0.3)] bg-transparent 
-            focus:border-primary outline-none text-white
-            "
+              className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
             />
           </div>
           {/* Email field */}
@@ -155,11 +132,7 @@ const Contact = () => {
             name="email"
             value={data.email}
             onChange={handleTextChange}
-            style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
-            className="w-full px-4 py-3 rounded-md border
-            border-[rgba(225,255,255,0.3)] bg-transparent 
-            focus:border-primary outline-none text-white
-            "
+            className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
           />
 
           <textarea
@@ -170,30 +143,20 @@ const Contact = () => {
             id=""
             cols="0"
             rows="10"
-            style={{ boxShadow: "inset 0px 0px 10px rgba(255,255,255,0.3)" }}
-            className="w-full px-4 py-3 rounded-md border
-            border-[rgba(225,255,255,0.3)] bg-transparent 
-            focus:border-primary outline-none text-white
-            "
+            className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
           ></textarea>
           <div
             className="w-full flex items-center justify-center
            lg:justify-end"
           >
             <button
-              className="px-12 py-3 bg-gradient-to-br
-            from-primary to-secondary rounded-md w-full
-            lg:w-auto hover:bg-gradient-to-br hover:from-black
-            hover:to-black hover:border hover:border-primary 
-            hover:text-primary duration-200
-
-            "
+              className="px-12 py-3 bg-gradient-to-br from-primary to-secondary rounded-md w-full lg:w-auto hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/25 duration-300"
               onClick={sendMessage}
             >
               Send
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

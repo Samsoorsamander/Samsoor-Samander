@@ -1,78 +1,50 @@
 import React from "react";
-import { Leaf1, Leaf2 } from "../assets";
 import { motion } from "framer-motion";
+import { SectionTitle } from "../components";
 
 const Skills = () => {
+  const skillGroups = [
+    {
+      title: "Frontend",
+      description:
+        "React.js, React Native, Next.js, Tailwind CSS, and UI animation workflows with Framer Motion.",
+    },
+    {
+      title: "Backend",
+      description:
+        "Node.js, Express.js, REST APIs, WebSockets, and ASP.NET Core integration for scalable services.",
+    },
+    {
+      title: "Data & Tools",
+      description:
+        "MongoDB, SQL, Firebase, Git/GitHub, JWT auth, and deployment on Vercel, Netlify, EAS, and Docker.",
+    },
+  ];
+
   return (
     <section
       id="skills"
-      className="flex items-center justify-center flex-col gap-12 my-12"
+      className="flex items-center justify-center flex-col gap-12 my-16"
     >
-      {/* title */}
-      <div className="w-full flex items-center justify-center py-24">
-        <motion.div
-          initial={{ opacity: 0, width: 0 }}
-          animate={{ opacity: 1, width: 200 }}
-          exit={{ opacity: 0, width: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-around w-52"
-        >
-          <img src={Leaf1} className="w-6 h-auto object-contain" alt="" />
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Skills
-          </p>
-          <img src={Leaf2} className="w-6 h-auto object-contain" alt="" />
-        </motion.div>
-      </div>
+      <SectionTitle title="Skills & Experience" subtitle="Expertise" />
 
-      {/* main content */}
-      <div className="grid grid-cols-1  gap-4 w-full">
-        {/* content section */}
-        <div
-          className="w-full px-8 flex flex-col gap-4 items-start
-        justify-start
-        "
-        >
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            My Skill & Work Experience
-          </p>
-          <p className="text-texlight text-base tracking-wide text-justify">
-            💻 Frontend Development React.js (Hooks, Context API, Redux) React
-            Native (Expo, Native Modules) UI/UX Design (Tailwind CSS, Styled
-            Components) and Next.js
-          </p>
-          <p className="text-texlight text-base tracking-wide text-justify">
-            🚀 Backend Development Node.js (Express.js, REST APIs, WebSockets)
-            C# (.NET, ASP.NET Core) and Next.js
-          </p>
-          <p className="text-texlight text-base tracking-wide text-justify">
-            🛢️ Database Management MongoDB (Mongoose, Aggregation) SQL (MySQL,
-            PostgreSQL) Oracle APEX (PL/SQL, Low-Code Development)
-          </p>
-          <p className="text-texlight text-base tracking-wide text-justify">
-            ⚙️ Tools & Other Skills Version Control (Git, GitHub) Authentication
-            (JWT, Clerk) Deployment (Vercel, Netlify, EAS, Docker)
-          </p>
-        </div>
-
-        {/* image section */}
-        {/* <div className="w-full flex flex-col gap-4 items-center justify-center px-8">
-          <SkillCard
-            skill={"HTML 5"}
-            percentage={"95%"}
-            color={"#FF3F3F"}
-            move={true}
-          />
-          <SkillCard skill={"CSS 3"} percentage={"75%"} color={"#008FFF"} />
-          <SkillCard
-            skill={"Javascript"}
-            percentage={"85%"}
-            color={"#FF8900"}
-            move={true}
-          />
-          <SkillCard skill={"Node Js"} percentage={"80%"} color={"#14DB00"} />
-          <SkillCard skill={"Mongo DB "} percentage={"75%"} color={"#FFE400"} />
-        </div> */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full px-4">
+        {skillGroups.map((group, index) => (
+          <motion.article
+            key={group.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            whileHover={{ y: -8 }}
+            className="glass-card rounded-2xl p-6 border border-white/10"
+          >
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {group.title}
+            </h3>
+            <p className="text-gray-300 leading-7">{group.description}</p>
+          </motion.article>
+        ))}
       </div>
     </section>
   );

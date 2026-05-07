@@ -9,12 +9,6 @@ import {
   FaUser,
   FaInstagram,
 } from "react-icons/fa6";
-import {
-  FreshJuiceUI,
-  PixabayClone,
-  PortfolioFirebase,
-  SocialMedia,
-} from "../assets";
 
 export const Socials = [
   {

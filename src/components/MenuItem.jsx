@@ -10,10 +10,8 @@ const MenuItem = ({ menu, index }) => {
         href={menu.uri}
         className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center
          justify-center group cursor-pointer 
-         hover:bg-gradient-to-br 
-         hover:from-primary hover:to-secondary relative
-         transition-all duration-200
-         active:scale-95"
+         hover:bg-gradient-to-br hover:from-primary hover:to-secondary relative
+         transition-all duration-300 hover:-translate-y-1 active:scale-95"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={(e) => {
@@ -26,9 +24,7 @@ const MenuItem = ({ menu, index }) => {
           }
         }}
       >
-        <menu.Icon
-          className={`text-texlight group-hover:text-bgPrimary text-lg sm:text-xl`}
-        />
+        <menu.Icon className="text-texlight group-hover:text-bgPrimary text-lg sm:text-xl transition-colors" />
       </a>
 
       {/* Desktop tooltips */}

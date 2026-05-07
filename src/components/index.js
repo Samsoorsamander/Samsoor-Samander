@@ -3,3 +3,6 @@ export { default as HomeSocialLinks } from "./HomeSocialLinks";
 export { default as MenuItem } from "./MenuItem";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as SkillCard } from "./SkillCard";
+export { default as SectionTitle } from "./SectionTitle";
+export { default as Footer } from "./Footer";
+export { default as ScrollTopButton } from "./ScrollTopButton";
