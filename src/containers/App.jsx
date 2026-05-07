@@ -29,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="w-full flex-wrap max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden pb-28 lg:pb-0">
+    <div className="w-full flex-wrap max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden pb-28 lg:pb-20">
       {/* Smooth scroll behavior */}
       <style jsx global>{`
         html {

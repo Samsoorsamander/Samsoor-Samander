@@ -12,12 +12,17 @@ const Skills = () => {
     {
       title: "Backend",
       description:
-        "Node.js, Express.js, REST APIs, WebSockets, and ASP.NET Core integration for scalable services.",
+        "Node.js, Express.js, REST APIs, WebSockets, and full-stack integrations for scalable services.",
     },
     {
       title: "Data & Tools",
       description:
         "MongoDB, SQL, Firebase, Git/GitHub, JWT auth, and deployment on Vercel, Netlify, EAS, and Docker.",
+    },
+    {
+      title: "Desktop",
+      description:
+        "Desktop apps with Electron.js and Tauri (cross-platform UI + native performance).",
     },
   ];
 
