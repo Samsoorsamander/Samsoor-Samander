@@ -18,8 +18,9 @@ const Home = () => {
           transition={{ duration: 0.6 }}
           className="w-full h-full lg:col-span-8 flex flex-col items-center lg:items-start gap-4"
         >
+          {/* Short, client/HR-friendly intro label */}
           <span className="px-4 py-1 rounded-full border border-white/20 text-xs tracking-[0.25em] uppercase text-gray-300">
-            Full Stack Developer
+            Full-Stack • AI Agent Services
           </span>
           <h2 className="text-3xl lg:text-5xl text-texlight leading-tight">
             Hello, it's me
@@ -35,18 +36,37 @@ const Home = () => {
             And I'm{" "}
             <HeroTypeWritter
               speed={100}
-              words={["a MERN Stack developer...", "a Mobile developer..."]}
+              words={[
+                "AI agent services for modern web apps...",
+                "AI-powered mobile apps & web apps...",
+                "Full-stack development with AI...",
+              ]}
             />
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-300 mt-6 text-center lg:text-left max-w-3xl">
-            Building apps, crafting experiences, and solving problems—one line
-            of code at a time. From mobile applications to full-stack web
-            solutions, I turn ideas into reality, blending creativity with logic
-            to make technology work seamlessly. Every project is a new
-            challenge, and every challenge is an opportunity to create something
-            meaningful.
-          </p>
+          {/* HR/client readable summary + separate highlighted chips */}
+          <div className="mt-4 max-w-3xl w-full">
+            <p className="text-sm sm:text-base text-gray-300 leading-7 text-center lg:text-left">
+              I build modern products that combine:
+            </p>
+            <div className="mt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              {[
+                "full-stack",
+                "AI agent services",
+                "AI",
+                "mobile apps",
+                "web apps",
+                "desktop apps",
+              ].map((label) => (
+                <span
+                  key={label}
+                  className="px-3 py-1 rounded-full border border-white/15 bg-white/5 text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
 
           {/* social media links */}
           <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-10 mt-10">
@@ -85,11 +105,14 @@ const Home = () => {
               Spotlight
             </p>
             <h3 className="text-2xl font-semibold text-white leading-snug">
-              I build clean products with smooth user experiences.
+              Full-stack + AI—built across mobile, web, and desktop.
             </h3>
             <p className="text-gray-300">
-              React, React Native, Node.js, and modern UI animations that feel
-              premium and responsive.
+              I ship with <strong>React</strong>, <strong>Next.js</strong>,{" "}
+              <strong>React Native</strong>, and desktop frameworks like{" "}
+              <strong>Electron.js</strong> and <strong>Tauri</strong>.
+              <br />
+              Plus AI agent services that make apps smarter and more useful.
             </p>
           </div>
         </motion.div>
