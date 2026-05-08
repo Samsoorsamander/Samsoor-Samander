@@ -72,6 +72,36 @@ export const Menus = [
 
 export const ProjectsData = [
   {
+    id: `gympro-desktop-${Date.now()}`,
+    name: "GymPro",
+    imgSrc: require("../assets/img/GymPro.png"),
+    gitURL: "",
+    demo: "",
+    description:
+      "Desktop gym management app for handling members, subscriptions, payments, expenses, and sales in one dashboard.",
+    type: "desktop",
+  },
+  {
+    id: `spectrumpro-desktop-${Date.now()}`,
+    name: "Spectrum Pro",
+    imgSrc: require("../assets/img/SpectrumPro.png"),
+    gitURL: "",
+    demo: "",
+    description:
+      "Desktop system for a color distribution company to manage customers, employee records, payments, expenses, and sales operations.",
+    type: "desktop",
+  },
+  {
+    id: `pharmaflow-desktop-${Date.now()}`,
+    name: "PharmaFlow",
+    imgSrc: require("../assets/img/Pharmaflow.png"),
+    gitURL: "",
+    demo: "",
+    description:
+      "Desktop application for pharmaceutical distribution and pharmacy workflows, including stock movement, sales, and business tracking.",
+    type: "desktop",
+  },
+  {
     id: `Gym tribe tracker-${Date.now()}`,
     name: "Gym Tribe Tracker",
     imgSrc: require("../assets/img/gym.png"),

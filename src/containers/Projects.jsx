@@ -10,6 +10,13 @@ import {
 } from "react-icons/fa";
 
 const Projects = () => {
+  // Keep desktop projects first so recruiters see core business apps immediately.
+  const orderedProjects = [...ProjectsData].sort((a, b) => {
+    if (a.type === "desktop" && b.type !== "desktop") return -1;
+    if (a.type !== "desktop" && b.type === "desktop") return 1;
+    return 0;
+  });
+
   return (
     <section
       id="projects"
@@ -17,9 +24,16 @@ const Projects = () => {
     >
       <SectionTitle title="Featured Projects" subtitle="Portfolio" />
 
+      {/* Highlighted label to call attention to pinned desktop projects. */}
+      <div className="w-full px-4">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+          Desktop Apps Featured First
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
-        {ProjectsData &&
-          ProjectsData.map((project, index) => (
+        {orderedProjects &&
+          orderedProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} />
           ))}
       </div>
@@ -60,6 +74,11 @@ const ProjectCard = ({ project }) => {
               <>
                 <FaMobileAlt className="mr-1" />
                 <span>Mobile Project</span>
+              </>
+            ) : project.type === "desktop" ? (
+              <>
+                <FaDesktop className="mr-1" />
+                <span>Desktop Project</span>
               </>
             ) : (
               <>

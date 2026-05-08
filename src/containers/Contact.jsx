@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { addDoc, collection } from "firebase/firestore";
+import { FaCircleCheck, FaCircleExclamation, FaSpinner } from "react-icons/fa6";
 import { db } from "../config/firebase.config";
 import Alert from "./Alert";
 import { SectionTitle } from "../components";
 
 import emailjs from "emailjs-com";
+
+const RECEIVER_EMAIL = "samsoorsamander@gmail.com";
 const Contact = () => {
   const [data, setData] = useState({
     firstName: "",
@@ -19,6 +22,11 @@ const Contact = () => {
     message: "",
     status: null,
   });
+  const [isSending, setIsSending] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    message: "",
+    type: "idle",
+  });
 
   const handleTextChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +35,17 @@ const Contact = () => {
   };
 
   const sendMessage = async () => {
-    if (!data.email) {
+    if (isSending) return;
+
+    if (!data.email || !data.message) {
       setAlert({
         isAlert: true,
         message: "Required fields cannot be empty",
         status: "warning",
+      });
+      setSubmitStatus({
+        message: "Please enter your email and message before sending.",
+        type: "warning",
       });
       setTimeout(
         () => setAlert({ isAlert: false, message: "", status: null }),
@@ -41,6 +55,12 @@ const Contact = () => {
     }
 
     try {
+      setIsSending(true);
+      setSubmitStatus({
+        message: "Sending your message...",
+        type: "info",
+      });
+
       // Store in Firestore
       await addDoc(collection(db, "messages"), { ...data });
 
@@ -49,9 +69,11 @@ const Contact = () => {
         "samsoorID",
         "template_rwsdu7z",
         {
+          to_email: RECEIVER_EMAIL,
           from_first: data.firstName,
           from_last: data.lastName,
           from_email: data.email,
+          reply_to: data.email,
           message: data.message,
         },
         "LbagokLMED6e5BBFc"
@@ -63,6 +85,10 @@ const Contact = () => {
           "Thanks for contacting me! Your message has been sent to my inbox.",
         status: "success",
       });
+      setSubmitStatus({
+        message: "Message sent successfully to samsoorsamander@gmail.com.",
+        type: "success",
+      });
 
       setTimeout(
         () => setAlert({ isAlert: false, message: "", status: null }),
@@ -70,15 +96,32 @@ const Contact = () => {
       );
       setData({ firstName: "", lastName: "", email: "", message: "" });
     } catch (error) {
+      // If EmailJS fails, open user's email client so the message can still reach inbox.
+      const mailtoSubject = encodeURIComponent(
+        `Portfolio Contact: ${data.firstName} ${data.lastName}`.trim()
+      );
+      const mailtoBody = encodeURIComponent(
+        `From: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\n\n${data.message}`
+      );
+      window.location.href = `mailto:${RECEIVER_EMAIL}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
       setAlert({
         isAlert: true,
-        message: `Error: ${error.message}`,
-        status: "danger",
+        message:
+          "Email service failed, so we opened your email app to send the message directly.",
+        status: "warning",
+      });
+      setSubmitStatus({
+        message:
+          "Automatic send failed. Your email app was opened so you can send directly.",
+        type: "warning",
       });
       setTimeout(
         () => setAlert({ isAlert: false, message: "", status: null }),
         4000
       );
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -150,12 +193,38 @@ const Contact = () => {
            lg:justify-end"
           >
             <button
-              className="px-12 py-3 bg-gradient-to-br from-primary to-secondary rounded-md w-full lg:w-auto hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/25 duration-300"
+              className="px-12 py-3 bg-gradient-to-br from-primary to-secondary rounded-md w-full lg:w-auto hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/25 duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={sendMessage}
+              disabled={isSending}
             >
-              Send
+              {isSending ? "Sending..." : "Send"}
             </button>
           </div>
+          {submitStatus.message && (
+            <p
+              className={`w-full text-sm text-center lg:text-right flex items-center justify-center lg:justify-end gap-2 ${
+                submitStatus.type === "success"
+                  ? "text-primary"
+                  : submitStatus.type === "warning"
+                  ? "text-yellow-300"
+                  : "text-gray-300"
+              }`}
+            >
+              {submitStatus.type === "success" && (
+                <FaCircleCheck className="text-primary" aria-hidden="true" />
+              )}
+              {submitStatus.type === "warning" && (
+                <FaCircleExclamation
+                  className="text-yellow-300"
+                  aria-hidden="true"
+                />
+              )}
+              {submitStatus.type === "info" && (
+                <FaSpinner className="animate-spin" aria-hidden="true" />
+              )}
+              {submitStatus.message}
+            </p>
+          )}
         </motion.div>
       </div>
     </section>
