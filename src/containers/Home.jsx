@@ -5,6 +5,27 @@ import { Socials } from "../utils/helper";
 import CV from "./../assets/Samsoor-resume.pdf";
 
 const Home = () => {
+  const stats = [
+    { label: "Projects Delivered", value: "20+" },
+    { label: "Platforms", value: "Web • Mobile • Desktop" },
+    { label: "Primary Focus", value: "Full-Stack + AI" },
+  ];
+
+  const testimonials = [
+    {
+      id: "ops-manager",
+      quote:
+        "Samsoor delivered a clean system that improved our daily operations and reporting speed.",
+      role: "Operations Manager",
+    },
+    {
+      id: "product-owner",
+      quote:
+        "Strong ownership, fast delivery, and excellent communication throughout the project lifecycle.",
+      role: "Product Owner",
+    },
+  ];
+
   return (
     <section
       id="home"
@@ -31,15 +52,16 @@ const Home = () => {
             </span>
           </h2>
 
-          {/* typewritter */}
+          {/* Clear value statement for better readability and professionalism. */}
           <h2 className="text-xl sm:text-2xl lg:text-4xl text-texlight mt-4">
-            And I'm{" "}
+            I specialize in{" "}
             <HeroTypeWritter
               speed={100}
               words={[
-                "AI agent services for modern web apps...",
-                "AI-powered mobile apps & web apps...",
-                "Full-stack development with AI...",
+                "AI-powered web applications",
+                "AI-powered mobile applications",
+                "AI agent services for modern products",
+                "full-stack development across web, mobile, and desktop",
               ]}
             />
           </h2>
@@ -86,9 +108,35 @@ const Home = () => {
             <p
               className="text-texlight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary"
             >
-              Download CV
+              Download Resume
             </p>
           </a>
+
+          {/* Compact stats increase scannability for recruiters. */}
+          <div className="mt-8 w-full grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {stats.map((item) => (
+              <div
+                key={item.label}
+                className="glass-card rounded-xl border border-white/10 p-3 text-center sm:text-left"
+              >
+                <p className="text-lg font-semibold text-white">{item.value}</p>
+                <p className="text-xs tracking-wide text-gray-400">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Lightweight trust section without adding heavy structure. */}
+          <div className="w-full mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {testimonials.map((item) => (
+              <div
+                key={item.id}
+                className="glass-card rounded-xl border border-white/10 p-4"
+              >
+                <p className="text-sm text-gray-200 leading-6">"{item.quote}"</p>
+                <p className="text-xs text-primary mt-2">{item.role}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Spotlight panel adds depth and modern visual focus. */}
@@ -105,14 +153,15 @@ const Home = () => {
               Spotlight
             </p>
             <h3 className="text-2xl font-semibold text-white leading-snug">
-              Full-stack + AI—built across mobile, web, and desktop.
+              Full-stack and AI solutions for web, mobile, and desktop.
             </h3>
             <p className="text-gray-300">
-              I ship with <strong>React</strong>, <strong>Next.js</strong>,{" "}
-              <strong>React Native</strong>, and desktop frameworks like{" "}
+              I build with <strong>React</strong>, <strong>Next.js</strong>,{" "}
+              <strong>React Native</strong>, and desktop frameworks such as{" "}
               <strong>Electron.js</strong> and <strong>Tauri</strong>.
               <br />
-              Plus AI agent services that make apps smarter and more useful.
+              I also deliver <strong>AI agent services</strong> that make
+              products smarter, faster, and more useful.
             </p>
           </div>
         </motion.div>

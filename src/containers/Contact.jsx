@@ -182,7 +182,7 @@ const Contact = () => {
             name="message"
             value={data.message}
             onChange={handleTextChange}
-            placeholder="Message here"
+            placeholder="Your message"
             id=""
             cols="0"
             rows="10"
@@ -197,7 +197,7 @@ const Contact = () => {
               onClick={sendMessage}
               disabled={isSending}
             >
-              {isSending ? "Sending..." : "Send"}
+              {isSending ? "Sending Message..." : "Send Message"}
             </button>
           </div>
           {submitStatus.message && (

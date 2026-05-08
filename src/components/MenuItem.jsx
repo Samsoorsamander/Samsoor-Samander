@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const MenuItem = ({ menu, index }) => {
+const MenuItem = ({ menu, index, isActive }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative mx-1 sm:mx-2 min-w-[44px]">
       <a
         href={menu.uri}
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center
+        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center
          justify-center group cursor-pointer 
          hover:bg-gradient-to-br hover:from-primary hover:to-secondary relative
-         transition-all duration-300 hover:-translate-y-1 active:scale-95"
+         transition-all duration-300 hover:-translate-y-1 active:scale-95 ${
+           isActive ? "bg-gradient-to-br from-primary to-secondary" : ""
+         }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={(e) => {
@@ -24,7 +26,11 @@ const MenuItem = ({ menu, index }) => {
           }
         }}
       >
-        <menu.Icon className="text-texlight group-hover:text-bgPrimary text-lg sm:text-xl transition-colors" />
+        <menu.Icon
+          className={`text-lg sm:text-xl transition-colors ${
+            isActive ? "text-bgPrimary" : "text-texlight group-hover:text-bgPrimary"
+          }`}
+        />
       </a>
 
       {/* Desktop tooltips */}
@@ -49,7 +55,13 @@ const MenuItem = ({ menu, index }) => {
 
       {/* Mobile label - always visible */}
       <div className="lg:hidden block text-center mt-1">
-        <p className="text-texlight text-xs whitespace-nowrap">{menu.name}</p>
+        <p
+          className={`text-xs whitespace-nowrap ${
+            isActive ? "text-primary font-semibold" : "text-texlight"
+          }`}
+        >
+          {menu.name}
+        </p>
       </div>
     </div>
   );

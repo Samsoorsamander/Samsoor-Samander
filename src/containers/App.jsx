@@ -6,6 +6,7 @@ import {
   ParticlesContainer,
   Projects,
   Skills,
+  Timeline,
 } from "./";
 import { Footer, ScrollTopButton } from "../components";
 import SkillsIcon from "../config/SkillsIcon";
@@ -50,6 +51,9 @@ const App = () => {
       <SkillsIcon />
       {/* skills container */}
       <Skills />
+
+      {/* timeline container */}
+      <Timeline />
 
       {/* projects container */}
       <Projects />

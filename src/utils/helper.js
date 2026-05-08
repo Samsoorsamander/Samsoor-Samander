@@ -45,10 +45,10 @@ export const Menus = [
     name: "Home",
   },
   {
-    id: `about-${Date.now()}`,
+    id: `timeline-${Date.now()}`,
     Icon: FaUser,
-    uri: "#about",
-    name: "About",
+    uri: "#timeline",
+    name: "Timeline",
   },
   {
     id: `skills-${Date.now()}`,
@@ -80,6 +80,7 @@ export const ProjectsData = [
     description:
       "Desktop gym management app for handling members, subscriptions, payments, expenses, and sales in one dashboard.",
     type: "desktop",
+    techStack: ["Electron.js", "React", "SQLite"],
   },
   {
     id: `spectrumpro-desktop-${Date.now()}`,
@@ -90,6 +91,7 @@ export const ProjectsData = [
     description:
       "Desktop system for a color distribution company to manage customers, employee records, payments, expenses, and sales operations.",
     type: "desktop",
+    techStack: ["Tauri", "React", "PostgreSQL"],
   },
   {
     id: `pharmaflow-desktop-${Date.now()}`,
@@ -100,6 +102,7 @@ export const ProjectsData = [
     description:
       "Desktop application for pharmaceutical distribution and pharmacy workflows, including stock movement, sales, and business tracking.",
     type: "desktop",
+    techStack: ["Electron.js", "React", "Node.js"],
   },
   {
     id: `Gym tribe tracker-${Date.now()}`,
@@ -110,6 +113,7 @@ export const ProjectsData = [
     description:
       "Fitness application that helps users track workouts, set goals, and connect with a community. Includes progress analytics and exercise libraries.",
     type: "web",
+    techStack: ["React", "Node.js", "MongoDB"],
   },
   {
     id: `Trending Daily Hub-${Date.now()}`,
@@ -120,6 +124,7 @@ export const ProjectsData = [
     description:
       "Trending Daily Hub - A multi-source entertainment aggregator delivering daily trending content across films, tech news, and music through seamless API integrations.",
     type: "web",
+    techStack: ["Next.js", "REST APIs", "Tailwind"],
   },
   {
     id: `games-${Date.now()}`,
@@ -182,6 +187,7 @@ export const ProjectsData = [
     description:
       "Mobile camera application with advanced filters, editing tools, and social sharing capabilities. Built with React Native for cross-platform performance.",
     type: "mobile",
+    techStack: ["React Native", "Expo", "Firebase"],
   },
   {
     id: `openai-${Date.now()}`,

@@ -7,22 +7,22 @@ const Skills = () => {
     {
       title: "Frontend",
       description:
-        "React.js, React Native, Next.js, Tailwind CSS, and UI animation workflows with Framer Motion.",
+        "React.js, Next.js, and React Native with polished UI systems using Tailwind CSS and Framer Motion.",
     },
     {
       title: "Backend",
       description:
-        "Node.js, Express.js, REST APIs, WebSockets, and full-stack integrations for scalable services.",
+        "Node.js and Express.js services with REST APIs, WebSockets, and scalable full-stack integrations.",
     },
     {
       title: "Data & Tools",
       description:
-        "MongoDB, SQL, Firebase, Git/GitHub, JWT auth, and deployment on Vercel, Netlify, EAS, and Docker.",
+        "MongoDB, SQL, Firebase, Git/GitHub, JWT authentication, and deployments on Vercel, Netlify, EAS, and Docker.",
     },
     {
       title: "Desktop",
       description:
-        "Desktop apps with Electron.js and Tauri (cross-platform UI + native performance).",
+        "Cross-platform desktop applications with Electron.js and Tauri, focused on performance and maintainability.",
     },
   ];
 
