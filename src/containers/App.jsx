@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-  Contact,
-  Header,
-  Home,
-  ParticlesContainer,
-  Projects,
-  Skills,
-  Timeline,
-} from "./";
+import { Contact, Header, Home, Projects, Skills, Timeline } from "./";
 import { Footer, ScrollTopButton } from "../components";
-import SkillsIcon from "../config/SkillsIcon";
-import Certificates from "./Certificates";
+import CertificatesModal from "./Certificates";
 
 const App = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
+  // Show back-to-top button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -30,42 +21,34 @@ const App = () => {
   }, []);
 
   return (
-    <div className="w-full flex-wrap max-w-[1600px] mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-x-hidden pb-28 lg:pb-20">
-      {/* Smooth scroll behavior */}
-      <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
-
-      {/* particles container */}
-      <ParticlesContainer />
-
-      {/* header */}
+    <div className="relative w-full overflow-x-hidden">
       <Header />
 
-      {/* home container */}
-      <Home />
+      <main className="px-7 py-6">
+        {/* home container */}
+        <Home />
 
-      {/* service container */}
-      <SkillsIcon />
-      {/* skills container */}
-      <Skills />
+        {/* skills container */}
+        <Skills />
 
-      {/* timeline container */}
-      <Timeline />
+        {/* timeline container */}
+        <Timeline />
 
-      {/* projects container */}
-      <Projects />
+        {/* projects container */}
+        <Projects />
 
-      {/* Certificates container */}
-      <Certificates />
+        {/* contact container */}
+        <Contact />
 
-      {/* contact container */}
-      <Contact />
+        {/* copyright footer */}
+        <Footer />
 
-      <Footer />
-      <ScrollTopButton isVisible={isVisible} />
+        {/* certificates modal (opened via nav / hero / footer) */}
+        <CertificatesModal />
+
+        {/* back to top */}
+        <ScrollTopButton isVisible={isVisible} />
+      </main>
     </div>
   );
 };

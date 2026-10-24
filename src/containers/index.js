@@ -9,5 +9,3 @@ export { default as Projects } from "./Projects";
 export { default as Contact } from "./Contact";
 
 export { default as Alert } from "./Alert";
-
-export { default as ParticlesContainer } from "./ParticlesContainer";

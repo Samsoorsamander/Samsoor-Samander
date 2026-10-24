@@ -6,3 +6,5 @@ export { default as SkillCard } from "./SkillCard";
 export { default as SectionTitle } from "./SectionTitle";
 export { default as Footer } from "./Footer";
 export { default as ScrollTopButton } from "./ScrollTopButton";
+export { default as Clock } from "./Clock";
+export { default as BottomBar } from "./BottomBar";

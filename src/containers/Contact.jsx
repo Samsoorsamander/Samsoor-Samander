@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { addDoc, collection } from "firebase/firestore";
 import { FaCircleCheck, FaCircleExclamation, FaSpinner } from "react-icons/fa6";
 import { db } from "../config/firebase.config";
@@ -126,10 +126,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="flex items-center justify-center flex-col gap-12 my-16"
-    >
+    <section id="contact" className="my-20 w-full">
       {/* Alert */}
       <AnimatePresence>
         {alert.isAlert && (
@@ -137,26 +134,24 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
-      <SectionTitle title="Let's Build Something Great" subtitle="Contact" />
+      <div className="prose m-auto">
+        <SectionTitle title="Let's Build Something Great" subtitle="Contact" />
 
-      {/* main content */}
-      <div
-        className="w-full flex flex-col items-center justify-start gap-4"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          className="w-full lg:w-[680px] p-4 sm:p-6 flex flex-col items-center justify-start gap-4 glass-card rounded-3xl border border-white/10"
-        >
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <p className="mt-2">
+          Have a project in mind — web, mobile, or desktop — or need AI agent
+          services? Tell me about it.
+        </p>
+
+        {/* main form */}
+        <div className="my-5 flex flex-col gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <input
               type="text"
               placeholder="First Name"
               name="firstName"
               value={data.firstName}
               onChange={handleTextChange}
-              className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
+              className="input"
             />
 
             <input
@@ -165,9 +160,10 @@ const Contact = () => {
               name="lastName"
               value={data.lastName}
               onChange={handleTextChange}
-              className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
+              className="input"
             />
           </div>
+
           {/* Email field */}
           <input
             type="text"
@@ -175,7 +171,7 @@ const Contact = () => {
             name="email"
             value={data.email}
             onChange={handleTextChange}
-            className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
+            className="input"
           />
 
           <textarea
@@ -183,41 +179,35 @@ const Contact = () => {
             value={data.message}
             onChange={handleTextChange}
             placeholder="Your message"
-            id=""
-            cols="0"
-            rows="10"
-            className="w-full px-4 py-3 rounded-md border border-white/20 bg-black/25 focus:border-primary outline-none text-white transition-colors"
-          ></textarea>
-          <div
-            className="w-full flex items-center justify-center
-           lg:justify-end"
-          >
+            rows={6}
+            className="input"
+          />
+
+          <div className="flex items-center lg:justify-end">
             <button
-              className="px-12 py-3 bg-gradient-to-br from-primary to-secondary rounded-md w-full lg:w-auto hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/25 duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="btn-accent w-full justify-center px-4 py-2.5 disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto"
               onClick={sendMessage}
               disabled={isSending}
             >
               {isSending ? "Sending Message..." : "Send Message"}
             </button>
           </div>
+
           {submitStatus.message && (
             <p
-              className={`w-full text-sm text-center lg:text-right flex items-center justify-center lg:justify-end gap-2 ${
+              className={`flex w-full items-center justify-center gap-2 text-sm lg:justify-end ${
                 submitStatus.type === "success"
-                  ? "text-primary"
+                  ? "text-[#3fb950]"
                   : submitStatus.type === "warning"
-                  ? "text-yellow-300"
-                  : "text-gray-300"
+                  ? "text-[#d29922]"
+                  : "text-[var(--fg)]"
               }`}
             >
               {submitStatus.type === "success" && (
-                <FaCircleCheck className="text-primary" aria-hidden="true" />
+                <FaCircleCheck aria-hidden="true" />
               )}
               {submitStatus.type === "warning" && (
-                <FaCircleExclamation
-                  className="text-yellow-300"
-                  aria-hidden="true"
-                />
+                <FaCircleExclamation aria-hidden="true" />
               )}
               {submitStatus.type === "info" && (
                 <FaSpinner className="animate-spin" aria-hidden="true" />
@@ -225,7 +215,14 @@ const Contact = () => {
               {submitStatus.message}
             </p>
           )}
-        </motion.div>
+        </div>
+
+        <p>
+          Or reach me directly at{" "}
+          <code className="break-all">samsoorsamander@gmail.com</code>
+          {" · "}
+          <a className="font-mono" href="tel:+93764273409">+93 764 273 409</a>
+        </p>
       </div>
     </section>
   );

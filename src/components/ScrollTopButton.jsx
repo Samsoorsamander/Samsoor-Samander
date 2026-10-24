@@ -1,25 +1,20 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa6";
 
+// antfu.me back-to-top: round ghost button bottom-right, appears after scroll
 const ScrollTopButton = ({ isVisible }) => {
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, y: 15, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 15, scale: 0.8 }}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-24 right-6 lg:bottom-8 lg:right-8 z-[60] w-11 h-11 rounded-full bg-gradient-to-r from-primary to-secondary text-black shadow-xl flex items-center justify-center"
-          aria-label="Back to top"
-        >
-          <FaArrowUp />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={`back-top fixed bottom-3 right-3 z-[90] transition-opacity duration-300 ${
+        isVisible ? "opacity-75 hover:opacity-100" : "pointer-events-none opacity-0"
+      }`}
+      aria-label="Scroll to top"
+      title="Scroll to top"
+    >
+      <FaArrowUp className="text-sm" />
+    </button>
   );
 };
 

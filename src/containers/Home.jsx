@@ -1,14 +1,24 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { HeroTypeWritter, HomeSocialLinks } from "../components";
+import { FaCertificate, FaRegFileLines } from "react-icons/fa6";
+import { HeroTypeWritter } from "../components";
 import { Socials } from "../utils/helper";
+import HomeSocialLinks from "../components/HomeSocialLinks";
 import CV from "./../assets/Samsoor-resume.pdf";
+
+const se = (stage) => ({ "--enter-stage": stage });
+
+const chips = [
+  { label: "web apps", uri: "#projects" },
+  { label: "mobile apps", uri: "#projects" },
+  { label: "desktop apps", uri: "#projects" },
+  { label: "AI agents", uri: "#skills" },
+];
 
 const Home = () => {
   const stats = [
-    { label: "Projects Delivered", value: "20+" },
-    { label: "Platforms", value: "Web • Mobile • Desktop" },
-    { label: "Primary Focus", value: "Full-Stack + AI" },
+    { label: "projects delivered", value: "20+" },
+    { label: "platforms", value: "Web · Mobile · Desktop" },
+    { label: "primary focus", value: "Full-Stack + AI" },
   ];
 
   const testimonials = [
@@ -27,144 +37,116 @@ const Home = () => {
   ];
 
   return (
-    <section
-      id="home"
-      className="flex items-center justify-center flex-col gap-12 relative py-10 sm:py-16"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
-        {/* content section*/}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-full h-full lg:col-span-8 flex flex-col items-center lg:items-start gap-4"
-        >
-          {/* Short, client/HR-friendly intro label */}
-          <span className="px-4 py-1 rounded-full border border-white/20 text-xs tracking-[0.25em] uppercase text-gray-300">
-            Full-Stack • AI Agent Services
-          </span>
-          <h2 className="text-3xl lg:text-5xl text-texlight leading-tight">
-            Hello, it's me
-            <span
-              className="block tracking-wider text-4xl lg:text-7xl mt-4 text-white"
-            >
-              Samsoor Samander
-            </span>
-          </h2>
+    <section id="home" className="w-full">
+      {/* name + lead — antfu.me intro */}
+      <div className="prose m-auto mb-8">
+        <h1 className="se" style={se(2)}>
+          Samsoor Enzo
+        </h1>
+        <p className="lead se" style={se(4)}>
+          Hey! I&rsquo;m <b>Samsoor Enzo</b> — full-stack developer building
+          modern products that combine engineering, AI and story-driven
+          design.
+        </p>
+      </div>
 
-          {/* Clear value statement for better readability and professionalism. */}
-          <h2 className="text-xl sm:text-2xl lg:text-4xl text-texlight mt-4">
-            I specialize in{" "}
-            <HeroTypeWritter
-              speed={100}
-              words={[
-                "AI-powered web applications",
-                "AI-powered mobile applications",
-                "AI agent services for modern products",
-                "full-stack development across web, mobile, and desktop",
-              ]}
-            />
-          </h2>
+      <div className="prose m-auto">
+        {/* specialization — mono, accent red */}
+        <p className="se" style={se(6)}>
+          I specialize in{" "}
+          <HeroTypeWritter
+            speed={70}
+            words={[
+              "AI-powered web applications",
+              "AI-powered mobile applications",
+              "AI agent services",
+              "full-stack products",
+            ]}
+          />
+        </p>
 
-          {/* HR/client readable summary + separate highlighted chips */}
-          <div className="mt-4 max-w-3xl w-full">
-            <p className="text-sm sm:text-base text-gray-300 leading-7 text-center lg:text-left">
-              I build modern products that combine:
-            </p>
-            <div className="mt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-              {[
-                "full-stack",
-                "AI agent services",
-                "AI",
-                "mobile apps",
-                "web apps",
-                "desktop apps",
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="px-3 py-1 rounded-full border border-white/15 bg-white/5 text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
-                >
-                  {label}
-                </span>
-              ))}
-            </div>
-          </div>
+        {/* currently shipping — antfu magic pills */}
+        <p className="se flex flex-wrap items-baseline gap-x-1.5 gap-y-1" style={se(7)}>
+          <span className="mr-1">Currently shipping:</span>
+          {chips.map((chip) => (
+            <a key={chip.label} href={chip.uri} className="magic-link">
+              {chip.label}
+            </a>
+          ))}
+        </p>
 
-          {/* social media links */}
-          <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-10 mt-10">
-            <AnimatePresence>
-              {Socials &&
-                Socials.map((item, index) => (
-                  <HomeSocialLinks key={index} data={item} index={index} />
-                ))}
-            </AnimatePresence>
-          </div>
-          {/* hire me btn*/}
+        {/* resume + certificates pills */}
+        <p className="se flex flex-wrap items-baseline" style={se(8)}>
           <a
             href={CV}
             download="Samsoor-resume.pdf"
-            className="mt-8 border border-white/25 rounded-xl px-8 py-3 active:scale-95 group hover:border-primary transition-all duration-300 bg-white/5 backdrop-blur-sm"
+            className="magic-link mr-2"
           >
-            <p
-              className="text-texlight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary"
-            >
-              Download Resume
-            </p>
+            <span className="icon">
+              <FaRegFileLines />
+            </span>
+            Resume
           </a>
+          <button
+            type="button"
+            className="magic-link !gap-[0.3rem]"
+            onClick={() =>
+              window.dispatchEvent(new Event("open-certificates"))
+            }
+          >
+            <span className="icon">
+              <FaCertificate />
+            </span>
+            Certificates
+          </button>
+        </p>
 
-          {/* Compact stats increase scannability for recruiters. */}
-          <div className="mt-8 w-full grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {stats.map((item) => (
-              <div
-                key={item.label}
-                className="glass-card rounded-xl border border-white/10 p-3 text-center sm:text-left"
-              >
-                <p className="text-lg font-semibold text-white">{item.value}</p>
-                <p className="text-xs tracking-wide text-gray-400">{item.label}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Lightweight trust section without adding heavy structure. */}
-          <div className="w-full mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {testimonials.map((item) => (
-              <div
-                key={item.id}
-                className="glass-card rounded-xl border border-white/10 p-4"
-              >
-                <p className="text-sm text-gray-200 leading-6">"{item.quote}"</p>
-                <p className="text-xs text-primary mt-2">{item.role}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Spotlight panel adds depth and modern visual focus. */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="lg:col-span-4"
+        {/* stats */}
+        <div
+          className="se my-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6"
+          style={se(9)}
         >
-          <div className="glass-card rounded-3xl p-6 h-full min-h-[260px] flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute -top-16 -right-12 w-44 h-44 rounded-full bg-primary/20 blur-3xl" />
-            <div className="absolute -bottom-16 -left-12 w-44 h-44 rounded-full bg-secondary/20 blur-3xl" />
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-400">
-              Spotlight
+          {stats.map((item) => (
+            <div key={item.label}>
+              <b>{item.value}</b>
+              <div className="op50 text-sm">{item.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* testimonials — antfu blockquotes */}
+        {testimonials.map((item, index) => (
+          <blockquote
+            key={item.id}
+            className="se"
+            style={se(10 + index)}
+          >
+            <p>{item.quote}</p>
+            <p className="text-sm">
+              — <span className="op50">{item.role}</span>
             </p>
-            <h3 className="text-2xl font-semibold text-white leading-snug">
-              Full-stack and AI solutions for web, mobile, and desktop.
-            </h3>
-            <p className="text-gray-300">
-              I build with <strong>React</strong>, <strong>Next.js</strong>,{" "}
-              <strong>React Native</strong>, and desktop frameworks such as{" "}
-              <strong>Electron.js</strong> and <strong>Tauri</strong>.
-              <br />
-              I also deliver <strong>AI agent services</strong> that make
-              products smarter, faster, and more useful.
-            </p>
-          </div>
-        </motion.div>
+          </blockquote>
+        ))}
+
+        <hr className="se" style={se(12)} />
+
+        {/* find me on — antfu social row */}
+        <p className="se" style={se(13)}>
+          Find me on
+        </p>
+        <p
+          className="se flex flex-wrap items-baseline gap-x-5 gap-y-2"
+          style={se(14)}
+        >
+          {Socials.map((item, index) => (
+            <HomeSocialLinks key={item.id} data={item} index={index} />
+          ))}
+        </p>
+
+        <p className="se" style={se(15)}>
+          Or mail me at{" "}
+          <code className="break-all">samsoorsamander@gmail.com</code>
+        </p>
       </div>
     </section>
   );

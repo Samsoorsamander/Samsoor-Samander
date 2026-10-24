@@ -1,39 +1,32 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Socials } from "../utils/helper";
-import HomeSocialLinks from "./HomeSocialLinks";
+import Clock from "./Clock";
+import { FaCertificate } from "react-icons/fa6";
 
+// antfu.me copyright row: muted text left, meta right
 const Footer = () => {
   return (
-    <footer className="w-full mt-16 mb-24 lg:mb-8 px-2">
-      <div className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-7">
-        <p className="text-2xl sm:text-3xl tracking-wide text-white text-center">
-          Samsoor Samander
-        </p>
+    <footer className="copyright prose m-auto w-full">
+      <span className="text-sm op50">
+        2024-present © <b>Samsoor Enzo</b>
+      </span>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
-          <AnimatePresence>
-            {Socials.map((item, index) => (
-              <HomeSocialLinks key={item.id} data={item} index={index} />
-            ))}
-          </AnimatePresence>
-        </div>
+      <span className="flex-auto" />
 
-        <div className="text-center text-gray-300 space-y-1">
-          <p>samsoorsamander@gmail.com</p>
-          <p>+93764273409</p>
-        </div>
+      <a
+        href="#certificates"
+        onClick={(event) => {
+          event.preventDefault();
+          window.dispatchEvent(new Event("open-certificates"));
+        }}
+        className="text-sm op50 inline-flex items-center gap-1 mr-4"
+      >
+        <FaCertificate aria-hidden="true" />
+        Certificates
+      </a>
 
-        {/* Subtle motion keeps footer lively without distraction. */}
-        <motion.p
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="text-sm text-gray-400"
-        >
-          © {new Date().getFullYear()} Samsoor Samander. All rights reserved.
-        </motion.p>
-      </div>
+      <span className="text-sm op50 font-mono">
+        <Clock />
+      </span>
     </footer>
   );
 };

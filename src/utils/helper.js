@@ -1,4 +1,5 @@
 import {
+  FaCertificate,
   FaDiagramProject,
   FaEnvelope,
   FaXTwitter,
@@ -14,24 +15,28 @@ export const Socials = [
   {
     id: `xtwitter-${Date.now()}`,
     Icon: FaXTwitter,
+    name: "X / Twitter",
     uri: "https://x.com/ssamDev",
     color: "#1877F2",
   },
   {
     id: `linkedin-${Date.now()}`,
     Icon: FaLinkedinIn,
+    name: "LinkedIn",
     uri: "https://www.linkedin.com/in/samsoor-hananzoi-264510257/",
     color: "#0072b1",
   },
   {
     id: `github-${Date.now()}`,
     Icon: FaGithub,
+    name: "GitHub",
     uri: "https://github.com/samsoorsamander",
     color: "#fff",
   },
   {
     id: `youtube-${Date.now()}`,
     Icon: FaInstagram,
+    name: "Instagram",
     uri: "https://instagram.com/samsoorsamander",
     color: "#ff0000",
   },
@@ -61,6 +66,14 @@ export const Menus = [
     Icon: FaDiagramProject,
     uri: "#projects",
     name: "Projects",
+  },
+  {
+    id: `certificates-${Date.now()}`,
+    Icon: FaCertificate,
+    uri: "#certificates",
+    name: "Certificates",
+    type: "modal",
+    event: "open-certificates",
   },
   {
     id: `contact-${Date.now()}`,

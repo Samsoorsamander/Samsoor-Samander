@@ -1,23 +1,18 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menus } from "../utils/helper";
-import { MenuItem } from "../components";
+import ThemeToggle from "../components/ThemeToggle";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import avatar from "../assets/img/about.webp";
 
 const Header = () => {
-  const sectionIds = useMemo(
-    () =>
-      Menus.map((menu) => menu.uri.replace("#", "")).filter(
-        (id) => id && document.getElementById(id)
-      ),
-    []
-  );
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const sections = Menus.map((menu) =>
+      document.getElementById(menu.uri.replace("#", ""))
+    ).filter(Boolean);
 
-    if (!sections.length) return;
+    if (!sections.length) return undefined;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -36,30 +31,77 @@ const Header = () => {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, [sectionIds]);
+  }, []);
 
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 w-full z-50
-      px-4 sm:px-0 pb-2 flex justify-center"
-    >
-      <div
-        className="w-fit px-4 py-3 rounded-[28px] border border-white/20 bg-black/35
-        inline-flex items-center justify-center gap-4 sm:gap-8
-        duration-200 backdrop-blur-xl max-w-full overflow-hidden
-        flex-nowrap shadow-2xl"
+    <header className="z-40">
+      {/* avatar logo — fixed top-left like antfu.me */}
+      <a
+        href="#home"
+        className="header-logo select-none outline-none"
+        title="Samsoor Enzo"
+        aria-label="Samsoor Enzo — home"
       >
-        {Menus &&
-          Menus.map((item, index) => (
-            <MenuItem
-              key={index}
-              menu={item}
-              index={index}
-              isActive={activeSection === item.uri.replace("#", "")}
-            />
-          ))}
-      </div>
-    </div>
+        <img src={avatar} alt="Samsoor Enzo" />
+      </a>
+
+      <nav className="nav">
+        <div className="spacer" />
+        <div className="right">
+          {Menus.map((item) => {
+            const id = item.uri.replace("#", "");
+            const isActive = activeSection === id;
+
+            // items flagged as modal open an overlay instead of scrolling
+            if (item.type === "modal") {
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className="cursor-pointer"
+                  onClick={() =>
+                    window.dispatchEvent(new Event(item.event))
+                  }
+                >
+                  {item.name}
+                </button>
+              );
+            }
+
+            return (
+              <a
+                key={item.id}
+                href={item.uri}
+                className={isActive ? "is-active" : ""}
+              >
+                {item.name}
+              </a>
+            );
+          })}
+
+          <a
+            href="https://github.com/samsoorsamander"
+            target="_blank"
+            rel="noreferrer"
+            title="GitHub"
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://x.com/ssamDev"
+            target="_blank"
+            rel="noreferrer"
+            title="X / Twitter"
+            aria-label="X / Twitter"
+          >
+            <FaXTwitter />
+          </a>
+
+          <ThemeToggle />
+        </div>
+      </nav>
+    </header>
   );
 };
 
