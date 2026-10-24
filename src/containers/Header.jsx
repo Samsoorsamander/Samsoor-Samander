@@ -16,11 +16,14 @@ const Header = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length) {
+          // prefer the section occupying the most of the viewport band
+          const best = visible.sort(
+            (a, b) => b.intersectionRatio - a.intersectionRatio
+          )[0];
+          setActiveSection(best.target.id);
+        }
       },
       {
         root: null,

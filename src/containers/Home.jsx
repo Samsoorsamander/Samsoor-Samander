@@ -3,6 +3,9 @@ import { FaCertificate, FaRegFileLines } from "react-icons/fa6";
 import { HeroTypeWritter } from "../components";
 import { Socials } from "../utils/helper";
 import HomeSocialLinks from "../components/HomeSocialLinks";
+import WebBackground from "../components/WebBackground";
+import HeroEvents from "../components/HeroEvents";
+import LeagueStrip from "../components/LeagueStrip";
 import CV from "./../assets/Samsoor-resume.pdf";
 
 const se = (stage) => ({ "--enter-stage": stage });
@@ -15,6 +18,15 @@ const chips = [
 ];
 
 const Home = () => {
+  const [webKey, setWebKey] = React.useState(0);
+
+  // summon Spider-Man → the web weaves itself again
+  React.useEffect(() => {
+    const redraw = () => setWebKey((key) => key + 1);
+    window.addEventListener("spider:redraw", redraw);
+    return () => window.removeEventListener("spider:redraw", redraw);
+  }, []);
+
   const stats = [
     { label: "projects delivered", value: "20+" },
     { label: "platforms", value: "Web · Mobile · Desktop" },
@@ -37,7 +49,18 @@ const Home = () => {
   ];
 
   return (
-    <section id="home" className="w-full">
+    <section id="home" className="relative w-full">
+      {/* growing spider web — ambient background art (antfu-style) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 -top-24 z-[-1] h-[380px] w-[380px] text-[var(--fg)] md:h-[520px] md:w-[520px]"
+      >
+        <WebBackground key={webKey} />
+      </div>
+
+      {/* visiting superheroes — ambient background scenes */}
+      <HeroEvents />
+
       {/* name + lead — antfu.me intro */}
       <div className="prose m-auto mb-8">
         <h1 className="se" style={se(2)}>
@@ -48,6 +71,9 @@ const Home = () => {
           modern products that combine engineering, AI and story-driven
           design.
         </p>
+
+        {/* summon the league */}
+        <LeagueStrip />
       </div>
 
       <div className="prose m-auto">

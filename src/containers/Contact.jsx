@@ -5,6 +5,7 @@ import { FaCircleCheck, FaCircleExclamation, FaSpinner } from "react-icons/fa6";
 import { db } from "../config/firebase.config";
 import Alert from "./Alert";
 import { SectionTitle } from "../components";
+import { TridentGlyph } from "../components/HeroGlyphs";
 
 import emailjs from "emailjs-com";
 
@@ -135,7 +136,11 @@ const Contact = () => {
       </AnimatePresence>
 
       <div className="prose m-auto">
-        <SectionTitle title="Let's Build Something Great" subtitle="Contact" />
+        <SectionTitle
+          title="Let's Build Something Great"
+          subtitle="Contact"
+          glyph={<TridentGlyph />}
+        />
 
         <p className="mt-2">
           Have a project in mind — web, mobile, or desktop — or need AI agent

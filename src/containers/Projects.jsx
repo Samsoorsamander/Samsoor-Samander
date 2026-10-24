@@ -9,6 +9,7 @@ import {
   FaMobileAlt,
   FaDesktop,
 } from "react-icons/fa";
+import { ReactorGlyph } from "../components/HeroGlyphs";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -29,7 +30,11 @@ const Projects = () => {
   return (
     <section id="projects" className="my-20 w-full">
       <div className="prose m-auto">
-        <SectionTitle title="Featured Projects" subtitle="Portfolio" />
+        <SectionTitle
+          title="Featured Projects"
+          subtitle="Portfolio"
+          glyph={<ReactorGlyph />}
+        />
 
         {/* Highlighted label to call attention to pinned desktop projects. */}
         <p className="op50 text-sm">Desktop apps showcased first.</p>

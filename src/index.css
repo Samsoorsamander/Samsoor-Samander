@@ -343,7 +343,10 @@ body {
 }
 
 .header-logo:hover img {
-  opacity: 0.75;
+  opacity: 0.85;
+  box-shadow:
+    0 0 0 2px rgba(229, 9, 19, 0.35),
+    0 0 20px rgba(229, 9, 19, 0.3);
 }
 
 .nav {
@@ -501,8 +504,7 @@ textarea.input {
   border: 1px solid #7d7d7d4d;
 }
 
-/* back-to-top (antfu style) */
-.back-top {
+/* back-to-top (antfu style) */.back-top {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
@@ -518,4 +520,607 @@ textarea.input {
 
 .back-top:hover {
   background: #8883;
+}
+
+/* ------------------------------------------------------------------ */
+/* spider web background — stroke drawing animation                    */
+/* ------------------------------------------------------------------ */
+
+.web-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: web-draw 0.7s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.web-spoke {
+  animation-duration: 0.55s;
+}
+
+.web-ring {
+  animation-duration: 0.85s;
+}
+
+.web-spider {
+  opacity: 0;
+  animation: web-spider 0.6s ease-in-out both 2.1s;
+}
+
+@keyframes web-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes web-spider {
+  to {
+    opacity: 0.9;
+  }
+}
+
+/* resident spider descends on his own silk thread, then bobs */
+.spider-silk {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: web-draw 0.5s ease-out both 2.35s;
+}
+
+.spider-drop {
+  animation: spider-drop 1s cubic-bezier(0.35, 0.1, 0.35, 1.15) both 2.45s;
+}
+
+.spider-bob {
+  animation: spider-bob 4.5s ease-in-out infinite 3.45s;
+}
+
+@keyframes spider-drop {
+  from {
+    transform: translateY(calc(-1 * var(--drop, 140px)));
+  }
+  78% {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spider-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .web-line,
+  .spider-silk {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .web-spider,
+  .spider-drop,
+  .spider-bob {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* superhero ambient scenes (hero background)                          */
+/* ------------------------------------------------------------------ */
+
+.hero-events {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Thor — lightning flicker */
+.thor-flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: thor-flash 2.4s ease-out both;
+}
+
+.thor-bolt {
+  position: absolute;
+  left: 14%;
+  top: -4%;
+  width: 110px;
+  opacity: 0;
+  animation: thor-bolt 2.4s steps(1, end) both;
+}
+
+@keyframes thor-flash {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.06;
+  }
+  16% {
+    opacity: 0;
+  }
+  26% {
+    opacity: 0.09;
+  }
+  42% {
+    opacity: 0.02;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes thor-bolt {
+  0%,
+  18% {
+    opacity: 0;
+  }
+  22% {
+    opacity: 0.85;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  34% {
+    opacity: 0.75;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* The Flash — speed streak */
+.flash-run {
+  position: absolute;
+  height: 2px;
+  width: 34%;
+  opacity: 0;
+  border-radius: 2px;
+  filter: blur(0.5px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent) 45%,
+    #ffd6d7 55%,
+    transparent
+  );
+}
+
+.flash-run.a {
+  top: 56%;
+  animation: flash-run 1s cubic-bezier(0.75, 0, 0.85, 0.35) both;
+}
+
+.flash-run.b {
+  top: 56.8%;
+  height: 1px;
+  animation: flash-run 1s cubic-bezier(0.75, 0, 0.85, 0.35) both 0.12s;
+}
+
+@keyframes flash-run {
+  0% {
+    left: -40%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.6;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+/* Superman — flight trail */
+.super-flight {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: flight-fade 2.2s ease both;
+}
+
+.super-flight path {
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: web-draw 1.1s cubic-bezier(0.5, 0, 0.6, 1) both 0.15s;
+}
+
+@keyframes flight-fade {
+  0% {
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Batman — bat-signal searchlights */
+.bat-beam {
+  position: absolute;
+  bottom: -10%;
+  width: 30%;
+  height: 80%;
+  opacity: 0;
+  background: linear-gradient(
+    to top,
+    rgba(248, 243, 243, 0.06),
+    transparent 70%
+  );
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0% 100%);
+}
+
+.bat-beam.bl {
+  left: 6%;
+  transform: skewX(-14deg);
+  animation: bat-beam 2.6s ease-in-out both;
+}
+
+.bat-beam.br {
+  right: 6%;
+  transform: skewX(14deg);
+  animation: bat-beam 2.6s ease-in-out both 0.9s;
+}
+
+.bat-signal {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 74px;
+  margin-left: -37px;
+  color: var(--fg-deeper);
+  opacity: 0;
+  animation: bat-signal 2.6s ease both 0.4s;
+}
+
+@keyframes bat-beam {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bat-signal {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  22% {
+    opacity: 0.14;
+    transform: scale(1);
+  }
+  55% {
+    opacity: 0.08;
+  }
+  82% {
+    opacity: 0.16;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+/* Iron Man — repulsor charge rings on accent buttons */
+.btn-accent {
+  position: relative;
+}
+
+.btn-accent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(248, 243, 243, 0.75);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-accent:hover::after {
+  animation: repulsor 1.05s ease-out infinite;
+}
+
+@keyframes repulsor {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+/* Captain America — shield spin on scroll-top hover */
+.shield-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: -0.85rem 0 0 -0.85rem;
+  border-radius: 50%;
+  border: 1px dashed var(--fg-light);
+  opacity: 0;
+}
+
+.back-top.shield:hover .shield-ring {
+  opacity: 0.7;
+  animation: shield-spin 3s linear infinite;
+}
+
+@keyframes shield-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aquaman — waves rolling in at the hero's bottom edge */
+.waves {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  opacity: 0;
+  animation: waves-fade 3.2s ease both;
+}
+
+.waves svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.waves-line {
+  stroke: var(--fg);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: web-draw 1.1s ease-out both 0.2s;
+}
+
+.waves-line.accent {
+  stroke: var(--accent);
+  stroke-width: 1.6;
+}
+
+@keyframes waves-fade {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.45;
+  }
+  70% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Captain America — the shield hurled across the hero */
+.cap-shield {
+  position: absolute;
+  left: -6%;
+  top: 42%;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: cap-throw 2s cubic-bezier(0.25, 0.5, 0.35, 1) both;
+}
+
+.cap-shield::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px solid var(--fg-light);
+  opacity: 0.6;
+}
+
+.cap-shield::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0.8;
+}
+
+.cap-spin {
+  position: absolute;
+  inset: 11px;
+  border-radius: 50%;
+  border: 1px dashed var(--fg-deeper);
+  opacity: 0.85;
+  animation: shield-spin 1.2s linear infinite;
+}
+
+@keyframes cap-throw {
+  0% {
+    transform: translate(0, 40px) scale(0.55) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  45% {
+    transform: translate(42vw, -70px) scale(1) rotate(360deg);
+  }
+  70% {
+    transform: translate(72vw, -10px) scale(0.95) rotate(620deg);
+  }
+  100% {
+    transform: translate(108vw, 50px) scale(0.8) rotate(900deg);
+    opacity: 0;
+  }
+}
+
+/* Iron Man — repulsor blast charging and firing */
+.repulsor-blast {
+  position: absolute;
+  right: 20%;
+  top: 36%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #f8f3f3 0%,
+    var(--accent) 55%,
+    transparent 72%
+  );
+  filter: blur(1px);
+  opacity: 0;
+  animation: repulsor-blast 2.2s ease-out both;
+}
+
+.repulsor-ring {
+  position: absolute;
+  right: 20%;
+  top: 36%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.repulsor-ring.r1 {
+  animation: repulsor-ring 2.2s ease-out both 0.1s;
+}
+
+.repulsor-ring.r2 {
+  animation: repulsor-ring 2.2s ease-out both 0.45s;
+}
+
+@keyframes repulsor-blast {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  18% {
+    transform: scale(1.2);
+    opacity: 0.95;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(22);
+    opacity: 0;
+  }
+}
+
+@keyframes repulsor-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(9);
+    opacity: 0;
+  }
+}
+
+/* League strip — quiet glyphs that summon a hero */
+.league-btn {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--fg);
+  opacity: 0.3;
+  transition: opacity 0.2s, color 0.2s, transform 0.2s;
+}
+
+.league-btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.league-btn:hover {
+  opacity: 1;
+  color: var(--fg-deeper);
+  transform: translateY(-2px);
+}
+
+.league-btn:active {
+  transform: translateY(0) scale(0.92);
+}
+
+/* Iron Man arc glow on the avatar */
+.header-logo img {
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thor-flash,
+  .thor-bolt,
+  .flash-run,
+  .super-flight,
+  .bat-beam,
+  .bat-signal,
+  .waves,
+  .waves-line,
+  .cap-shield,
+  .cap-spin,
+  .repulsor-blast,
+  .repulsor-ring,
+  .btn-accent::after,
+  .shield-ring {
+    animation: none !important;
+  }
 }

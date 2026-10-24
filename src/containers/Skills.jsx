@@ -1,5 +1,6 @@
 import React from "react";
 import { SectionTitle } from "../components";
+import { BoltGlyph } from "../components/HeroGlyphs";
 import SkillsIcon from "../config/SkillsIcon";
 
 const Skills = () => {
@@ -29,7 +30,11 @@ const Skills = () => {
   return (
     <section id="skills" className="my-20 w-full">
       <div className="prose m-auto">
-        <SectionTitle title="Skills & Experience" subtitle="Expertise" />
+        <SectionTitle
+          title="Skills & Experience"
+          subtitle="Expertise"
+          glyph={<BoltGlyph />}
+        />
 
         <div className="mt-4 grid gap-2">
           {skillGroups.map((group) => (

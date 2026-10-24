@@ -1,5 +1,6 @@
 import React from "react";
 import { SectionTitle } from "../components";
+import { ShieldGlyph } from "../components/HeroGlyphs";
 
 const timelineItems = [
   {
@@ -23,7 +24,11 @@ const Timeline = () => {
   return (
     <section id="timeline" className="my-20 w-full">
       <div className="prose m-auto">
-        <SectionTitle title="Experience Timeline" subtitle="Journey" />
+        <SectionTitle
+          title="Experience Timeline"
+          subtitle="Journey"
+          glyph={<ShieldGlyph />}
+        />
 
         <ul className="dot-accent mt-2">
           {timelineItems.map((item) => (
