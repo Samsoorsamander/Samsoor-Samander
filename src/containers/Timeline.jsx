@@ -1,5 +1,6 @@
-import React from "react";
-import { SectionTitle } from "../components";
+import React, { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { Reveal, SectionTitle } from "../components";
 import { ShieldGlyph } from "../components/HeroGlyphs";
 
 const timelineItems = [
@@ -21,6 +22,21 @@ const timelineItems = [
 ];
 
 const Timeline = () => {
+  const listRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+
+  // The thread fills as the timeline travels up the viewport, like a strand
+  // of web being spun while you scroll.
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 85%", "end 55%"],
+  });
+  const threadFill = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
     <section id="timeline" className="my-20 w-full">
       <div className="prose m-auto">
@@ -30,13 +46,28 @@ const Timeline = () => {
           glyph={<ShieldGlyph />}
         />
 
-        <ul className="dot-accent mt-2">
-          {timelineItems.map((item) => (
-            <li key={item.title}>
-              <b>{item.title}</b> — {item.detail}
-            </li>
-          ))}
-        </ul>
+        <div className="timeline-wrap" ref={listRef}>
+          <span className="timeline-thread" aria-hidden="true">
+            <motion.span
+              className="timeline-thread-fill"
+              style={reduceMotion ? { scaleY: 1 } : { scaleY: threadFill }}
+            />
+          </span>
+
+          <ol className="timeline-list">
+            {timelineItems.map((item, index) => (
+              <Reveal
+                as="li"
+                key={item.title}
+                className="timeline-item"
+                delay={index * 110}
+              >
+                <span className="timeline-node" aria-hidden="true" />
+                <b>{item.title}</b> — {item.detail}
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );

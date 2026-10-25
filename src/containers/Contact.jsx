@@ -4,7 +4,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { FaCircleCheck, FaCircleExclamation, FaSpinner } from "react-icons/fa6";
 import { db } from "../config/firebase.config";
 import Alert from "./Alert";
-import { SectionTitle } from "../components";
+import { Reveal, SectionTitle } from "../components";
 import { TridentGlyph } from "../components/HeroGlyphs";
 
 import emailjs from "emailjs-com";
@@ -148,7 +148,7 @@ const Contact = () => {
         </p>
 
         {/* main form */}
-        <div className="my-5 flex flex-col gap-5">
+        <Reveal className="my-5 flex flex-col gap-5" amount={0.15}>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <input
               type="text"
@@ -220,7 +220,7 @@ const Contact = () => {
               {submitStatus.message}
             </p>
           )}
-        </div>
+        </Reveal>
 
         <p>
           Or reach me directly at{" "}

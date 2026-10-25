@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionTitle } from "../components";
+import { Reveal, SectionTitle } from "../components";
 import { BoltGlyph } from "../components/HeroGlyphs";
 import SkillsIcon from "../config/SkillsIcon";
 
@@ -37,18 +37,18 @@ const Skills = () => {
         />
 
         <div className="mt-4 grid gap-2">
-          {skillGroups.map((group) => (
-            <div key={group.title}>
+          {skillGroups.map((group, index) => (
+            <Reveal key={group.title} delay={index * 90}>
               <h4>{group.title}</h4>
               <p className="mt-0">{group.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-10">
+        <Reveal className="mt-10" delay={160}>
           <p className="op50 text-sm">Tooling</p>
           <SkillsIcon />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -17,6 +18,8 @@
   --c-scrollbar-hover: #bbbabb;
   --accent: #e50913;
   --prose-max-width: 65ch;
+  /* Instagram-logo-style script (closest free match: Grand Hotel) */
+  --font-script: "Grand Hotel", "Segoe Script", "Brush Script MT", cursive;
   --fg-light: #888;
   --fg: #555;
   --fg-deep: #222;
@@ -140,19 +143,25 @@ body {
 .prose h1 {
   color: var(--fg-deeper);
   margin-top: 0;
-  margin-bottom: 0.888889em;
-  font-size: 2.25em;
-  font-weight: 800;
-  line-height: 1.11111;
+  margin-bottom: 0.3em;
+  font-family: var(--font-script);
+  font-size: 3.15em;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0;
+  /* script faces need a touch of headroom above the ascenders */
+  padding-top: 0.06em;
 }
 
 .prose h2 {
   color: var(--fg-deep);
   margin-top: 2em;
   margin-bottom: 1em;
-  font-size: 1.5em;
-  font-weight: 700;
-  line-height: 1.33333;
+  font-family: var(--font-script);
+  font-size: 1.9em;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
 .prose h3 {
@@ -264,6 +273,86 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
+/* Instagram-logo script — headings and the hero name                  */
+/* ------------------------------------------------------------------ */
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* hero — the portrait lives with the intro copy, not pinned to a      */
+/* corner. On desktop the copy keeps the page's prose axis and the     */
+/* photo sits beside it, top edges aligned with the name.              */
+/* ------------------------------------------------------------------ */
+
+.hero-row {
+  display: grid;
+  align-items: start;
+  gap: 1.5rem;
+  max-width: var(--prose-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-copy {
+  grid-row: 2;
+  grid-column: 1;
+  min-width: 0;
+}
+
+.hero-portrait {
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  max-width: 8.5rem;
+  margin: 0;
+}
+
+.prose .hero-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 12%;
+  margin: 0;
+  border-radius: 0.75rem;
+  border: 1px solid #7d7d7d4d;
+  box-shadow: 0 22px 45px -25px rgba(229, 9, 19, 0.55);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease, border-color 0.25s ease;
+}
+
+.prose .hero-portrait img:hover {
+  transform: translateY(-3px);
+  border-color: #8886;
+  box-shadow: 0 30px 55px -25px rgba(229, 9, 19, 0.7);
+}
+
+@media (min-width: 1024px) {
+  .hero-row {
+    grid-template-columns: var(--prose-max-width) minmax(0, 12vw);
+    column-gap: 2rem;
+    max-width: calc(var(--prose-max-width) + 2rem + 12vw);
+    margin-left: calc(50% - (var(--prose-max-width) / 2));
+    margin-right: auto;
+  }
+
+  .hero-copy {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .hero-portrait {
+    grid-row: 1;
+    grid-column: 2;
+    max-width: 13rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* magic links (antfu signature pill links)                            */
 /* ------------------------------------------------------------------ */
 
@@ -320,34 +409,6 @@ body {
 /* ------------------------------------------------------------------ */
 /* header / nav (antfu layout)                                         */
 /* ------------------------------------------------------------------ */
-
-.header-logo {
-  position: absolute;
-  margin: 1.25rem;
-  z-index: 40;
-}
-
-@media (min-width: 1280px) {
-  .header-logo {
-    position: fixed;
-  }
-}
-
-.header-logo img {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-.header-logo:hover img {
-  opacity: 0.85;
-  box-shadow:
-    0 0 0 2px rgba(229, 9, 19, 0.35),
-    0 0 20px rgba(229, 9, 19, 0.3);
-}
 
 .nav {
   box-sizing: border-box;
@@ -1101,11 +1162,6 @@ textarea.input {
   transform: translateY(0) scale(0.92);
 }
 
-/* Iron Man arc glow on the avatar */
-.header-logo img {
-  transition: opacity 0.3s ease, box-shadow 0.3s ease;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .thor-flash,
   .thor-bolt,
@@ -1123,4 +1179,109 @@ textarea.input {
   .shield-ring {
     animation: none !important;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* scroll silk — the reading-progress thread                           */
+/* ------------------------------------------------------------------ */
+
+.scroll-silk {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.scroll-silk-fill {
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 9, 19, 0.12),
+    rgba(229, 9, 19, 0.65) 55%,
+    var(--accent)
+  );
+  box-shadow: 0 0 14px rgba(229, 9, 19, 0.45);
+}
+
+.scroll-silk-spider {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(248, 243, 243, 0.35),
+    0 0 10px rgba(229, 9, 19, 0.85);
+}
+
+/* ------------------------------------------------------------------ */
+/* timeline — a web thread that draws itself as you scroll             */
+/* ------------------------------------------------------------------ */
+
+.timeline-wrap {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.timeline-thread {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.55rem;
+  bottom: 0.55rem;
+  width: 1px;
+  overflow: hidden;
+  background: #7d7d7d33;
+  pointer-events: none;
+}
+
+.timeline-thread-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(229, 9, 19, 0.55);
+}
+
+.prose .timeline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .timeline-list > li {
+  position: relative;
+  margin: 0 0 1.6rem;
+  padding-left: 2rem;
+}
+
+.prose .timeline-list > li:last-child {
+  margin-bottom: 0;
+}
+
+.prose .timeline-list > li::before {
+  content: none;
+  background: none;
+}
+
+.timeline-node {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.5em;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid #7d7d7d99;
+  background: var(--c-bg);
+  box-shadow: 0 0 0 3px var(--c-bg);
+}
+
+/* hero portrait parallax layer (inline motion transform lives here) */
+.hero-portrait-inner {
+  will-change: transform;
 }

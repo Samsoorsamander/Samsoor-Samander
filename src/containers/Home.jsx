@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { FaCertificate, FaRegFileLines } from "react-icons/fa6";
 import { HeroTypeWritter } from "../components";
 import { Socials } from "../utils/helper";
@@ -7,6 +8,7 @@ import WebBackground from "../components/WebBackground";
 import HeroEvents from "../components/HeroEvents";
 import LeagueStrip from "../components/LeagueStrip";
 import CV from "./../assets/Samsoor-resume.pdf";
+import portrait from "./../assets/samsoor.jpeg";
 
 const se = (stage) => ({ "--enter-stage": stage });
 
@@ -19,6 +21,15 @@ const chips = [
 
 const Home = () => {
   const [webKey, setWebKey] = React.useState(0);
+
+  // Scroll-linked parallax: the web turns slowly while the copy and the
+  // portrait drift apart, giving the hero a little depth as it leaves.
+  const reduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const webRotate = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : 16]);
+  const webDrift = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : 56]);
+  const copyDrift = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : 26]);
+  const portraitDrift = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : -34]);
 
   // summon Spider-Man → the web weaves itself again
   React.useEffect(() => {
@@ -51,29 +62,41 @@ const Home = () => {
   return (
     <section id="home" className="relative w-full">
       {/* growing spider web — ambient background art (antfu-style) */}
-      <div
+      <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 -top-24 z-[-1] h-[380px] w-[380px] text-[var(--fg)] md:h-[520px] md:w-[520px]"
+        className="hero-web pointer-events-none absolute -right-32 -top-24 z-[-1] h-[380px] w-[380px] text-[var(--fg)] md:h-[520px] md:w-[520px]"
+        style={{ rotate: webRotate, y: webDrift }}
       >
         <WebBackground key={webKey} />
-      </div>
+      </motion.div>
 
       {/* visiting superheroes — ambient background scenes */}
       <HeroEvents />
 
-      {/* name + lead — antfu.me intro */}
-      <div className="prose m-auto mb-8">
-        <h1 className="se" style={se(2)}>
-          Samsoor Enzo
-        </h1>
-        <p className="lead se" style={se(4)}>
-          Hey! I&rsquo;m <b>Samsoor Enzo</b> — full-stack developer building
-          modern products that combine engineering, AI and story-driven
-          design.
-        </p>
+      {/* name + lead + portrait — one hero row, portrait aligned with the copy */}
+      <div className="prose hero-row m-auto mb-8">
+        <motion.div className="hero-copy" style={{ y: copyDrift }}>
+          <h1 className="se" style={se(2)}>
+            Samsoor Enzo
+          </h1>
+          <p className="lead se" style={se(4)}>
+            Hey! I&rsquo;m <b>Samsoor Enzo</b> — full-stack developer building
+            modern products that combine engineering, AI and story-driven
+            design.
+          </p>
 
-        {/* summon the league */}
-        <LeagueStrip />
+          {/* summon the league */}
+          <LeagueStrip />
+        </motion.div>
+
+        <figure className="hero-portrait se" style={se(3)}>
+          <motion.div
+            className="hero-portrait-inner"
+            style={{ y: portraitDrift }}
+          >
+            <img src={portrait} alt="Samsoor Enzo" />
+          </motion.div>
+        </figure>
       </div>
 
       <div className="prose m-auto">

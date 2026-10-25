@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Menus } from "../utils/helper";
 import ThemeToggle from "../components/ThemeToggle";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
-import avatar from "../assets/img/about.webp";
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -38,16 +37,6 @@ const Header = () => {
 
   return (
     <header className="z-40">
-      {/* avatar logo — fixed top-left like antfu.me */}
-      <a
-        href="#home"
-        className="header-logo select-none outline-none"
-        title="Samsoor Enzo"
-        aria-label="Samsoor Enzo — home"
-      >
-        <img src={avatar} alt="Samsoor Enzo" />
-      </a>
-
       <nav className="nav">
         <div className="spacer" />
         <div className="right">

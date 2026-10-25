@@ -98,7 +98,7 @@ const CertificatesModal = () => {
             <div className="mb-6 flex items-start justify-between gap-6">
               <div>
                 <p className="op50 text-sm">Achievements</p>
-                <h2 className="mt-1 text-2xl font-bold text-[var(--fg-deeper)]">
+                <h2 className="font-script mt-1 text-3xl text-[var(--fg-deeper)]">
                   Certificates
                 </h2>
               </div>

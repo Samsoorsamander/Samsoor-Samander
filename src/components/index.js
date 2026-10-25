@@ -8,3 +8,5 @@ export { default as Footer } from "./Footer";
 export { default as ScrollTopButton } from "./ScrollTopButton";
 export { default as Clock } from "./Clock";
 export { default as BottomBar } from "./BottomBar";
+export { default as Reveal } from "./Reveal";
+export { default as ScrollProgress } from "./ScrollProgress";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Contact, Header, Home, Projects, Skills, Timeline } from "./";
-import { Footer, ScrollTopButton } from "../components";
+import { Footer, ScrollProgress, ScrollTopButton } from "../components";
 import CertificatesModal from "./Certificates";
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
 
   return (
     <div className="relative w-full overflow-x-hidden">
+      <ScrollProgress />
       <Header />
 
       <main className="px-7 py-6">
