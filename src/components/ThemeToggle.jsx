@@ -19,16 +19,15 @@ const ThemeToggle = () => {
   const [scheme, setScheme] = useState(
     () => localStorage.getItem(KEY) || "auto"
   );
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     try {
       localStorage.setItem(KEY, scheme);
     } catch (e) {}
-    setIsDark(applyScheme(scheme));
+    applyScheme(scheme);
 
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => setIsDark(applyScheme(scheme));
+    const onChange = () => applyScheme(scheme);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, [scheme]);
